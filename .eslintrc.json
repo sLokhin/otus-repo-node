@@ -5,7 +5,7 @@
   },
   "extends": ["eslint:recommended", "plugin:prettier/recommended", "prettier"],
   "parserOptions": {
-    "sourceType": "commonjs",
+    "sourceType": "module",
     "ecmaVersion": "latest"
   },
   "overrides": [

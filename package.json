@@ -3,8 +3,12 @@
   "version": "1.0.0",
   "description": "Node exercises",
   "main": "index.js",
+  "type": "module",
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
-    "start": "node tree",
+    "start": "node lesson-1",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,5 +26,8 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.1.3",
     "prettier": "^3.2.5"
+  },
+  "dependencies": {
+    "@otus-repo-node/repo-tree": "^1.0.0"
   }
 }

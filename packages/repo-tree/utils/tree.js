@@ -2,20 +2,6 @@ const symbols = ['├', '│', '└'];
 const space = '\u0020';
 const newLine = '\u000A';
 
-const data = {
-  name: 1,
-  items: [
-    {
-      name: 2,
-      items: [{ name: 3 }, { name: 4 }],
-    },
-    {
-      name: 5,
-      items: [{ name: 6 }],
-    },
-  ],
-};
-
 function buildTree(data) {
   const { name, items } = data;
 
@@ -49,5 +35,4 @@ function hasChildItems(item) {
   return Array.isArray(items) && items.length > 0;
 }
 
-console.log('Build tree function');
-console.log(buildTree(data));
+export { buildTree };
