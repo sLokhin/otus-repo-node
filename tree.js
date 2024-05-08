@@ -19,7 +19,7 @@ const data = {
 function buildTree(data) {
   const { name, items } = data;
 
-  const root = Boolean(String(name)) ? `${name}${newLine}` : `Root${newLine}`;
+  const root = String(name) ? `${name}${newLine}` : `Root${newLine}`;
 
   if (!hasChildItems(data)) return root;
 

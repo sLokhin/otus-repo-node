@@ -1,0 +1,40 @@
+{
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "extends": ["eslint:recommended", "plugin:prettier/recommended", "prettier"],
+  "parserOptions": {
+    "sourceType": "commonjs",
+    "ecmaVersion": "latest"
+  },
+  "overrides": [
+    {
+      "env": { "node": true },
+      "files": [".eslintrc.{js,cjs}"]
+    }
+  ],
+  "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ],
+    "no-restricted-syntax": [
+      "error",
+      {
+        "selector": "ExportDefaultDeclaration",
+        "message": "Restricted default export, prefer named exports!"
+      }
+    ],
+    "prefer-const": [
+      "error",
+      {
+        "destructuring": "any",
+        "ignoreReadBeforeAssign": false
+      }
+    ],
+    "no-console": "off"
+  }
+}
