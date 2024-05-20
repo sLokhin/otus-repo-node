@@ -1,7 +1,26 @@
+Words array:
+
 ab
 cb
 bss
 cb
 b
 cb
+
+Sorted words:
+
+ab
+b
+bss
+cb
+cb
+cb
+
+Result vector:
+
+{"word":"ab","amount":1}
+{"word":"b","amount":1}
+{"word":"bss","amount":1}
+{"word":"cb","amount":3}
+
 Close write stream

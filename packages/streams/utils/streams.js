@@ -18,13 +18,31 @@ readStream.on('data', (chunk) => {
 });
 
 readStream.on('end', () => {
-  const result = words.reduce((res, word) => {
+  const sortedWords = [...words].sort();
+  const vector = getVectorFromWords(sortedWords);
+
+  const resultWords = words.reduce((res, word) => {
     return res.concat(`${word}${newLine}`);
   }, '');
-  writeStream.write(result);
-  writeStream.end('Close write stream\n');
 
-  console.log(result);
+  const resultSortedWords = sortedWords.reduce((res, word) => {
+    return res.concat(`${word}${newLine}`);
+  }, '');
+
+  const resultVector = Object.values(vector).reduce((res, value) => {
+    return res.concat(`${JSON.stringify(value)}${newLine}`);
+  }, '');
+
+  writeStream.write(`Words array:${newLine}${newLine}`);
+  writeStream.write(resultWords);
+  writeStream.write(newLine);
+  writeStream.write(`Sorted words:${newLine}${newLine}`);
+  writeStream.write(resultSortedWords);
+  writeStream.write(newLine);
+  writeStream.write(`Result vector:${newLine}${newLine}`);
+  writeStream.write(resultVector);
+  writeStream.write(newLine);
+  writeStream.end('Close write stream\n');
 });
 
 readStream.on('error', (err) => {
@@ -49,4 +67,16 @@ function filterLine(line) {
 
 function getWordsFromLine(line) {
   return line.split(space).filter((word) => Boolean(word));
+}
+
+function getVectorFromWords(words) {
+  return words.reduce((vector, word) => {
+    if (Object.prototype.hasOwnProperty.call(vector, word)) {
+      vector[word].amount += 1;
+    } else {
+      vector[word] = { word, amount: 1 };
+    }
+
+    return vector;
+  }, {});
 }
