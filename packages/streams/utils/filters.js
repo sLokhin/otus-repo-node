@@ -25,9 +25,9 @@ function getWordsFromLine(line) {
 function getVectorFromWords(words) {
   return words.reduce((vector, word) => {
     if (Object.prototype.hasOwnProperty.call(vector, word)) {
-      vector[word].amount += 1;
+      vector[word] += 1;
     } else {
-      vector[word] = { word, amount: 1 };
+      vector[word] = 1;
     }
 
     return vector;

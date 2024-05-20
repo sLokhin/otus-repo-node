@@ -1,4 +1,5 @@
-import { executeStreams } from './utils/streams.js';
+import { executeStreamsOrig } from './utils/streams-orig.js';
+import { executeStreamsPipeline } from './utils/streams-pipeline.js';
 
 const options = [
   {
@@ -13,10 +14,14 @@ const options = [
 
 function processDemoFiles() {
   options.forEach((options) => {
-    executeStreams(options);
+    executeStreamsOrig(options);
+  });
+
+  options.forEach((options) => {
+    executeStreamsPipeline(options);
   });
 }
 
-// processDemoFiles();
+processDemoFiles();
 
 export { processDemoFiles };

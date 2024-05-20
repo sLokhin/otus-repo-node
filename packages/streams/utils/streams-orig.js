@@ -1,13 +1,14 @@
 import * as fs from 'node:fs';
 import { extractWords, getVectorFromWords } from './filters.js';
 
+const space = '\u0020';
 const newLine = '\u000A';
 
-function executeStreams({ inputFilePath, outputFilePath }) {
-  const readStream = fs.createReadStream(inputFilePath, {
+function executeStreamsOrig({ inputFilePath, outputFilePath }) {
+  const readStream = fs.createReadStream(`${inputFilePath}.txt`, {
     encoding: 'utf8',
   });
-  const writeStream = fs.createWriteStream(outputFilePath, {
+  const writeStream = fs.createWriteStream(`${outputFilePath}-orig.txt`, {
     encoding: 'utf8',
   });
 
@@ -29,8 +30,10 @@ function executeStreams({ inputFilePath, outputFilePath }) {
       return res.concat(`${word}${newLine}`);
     }, '');
 
-    const resultVector = Object.values(vector).reduce((res, value) => {
-      return res.concat(`${JSON.stringify(value)}${newLine}`);
+    const resultVector = Object.entries(vector).reduce((res, [key, value]) => {
+      return res.concat(
+        `{${space}${key}${space}:${space}${value}${space}},${newLine}`
+      );
     }, '');
 
     writeStream.write(`Words array:${newLine}${newLine}`);
@@ -50,4 +53,4 @@ function executeStreams({ inputFilePath, outputFilePath }) {
   });
 }
 
-export { executeStreams };
+export { executeStreamsOrig };

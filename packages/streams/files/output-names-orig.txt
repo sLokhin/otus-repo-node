@@ -14,8 +14,8 @@ juan
 
 Result vector:
 
-{"word":"alex","amount":2}
-{"word":"dima","amount":1}
-{"word":"juan","amount":1}
+{ alex : 2 },
+{ dima : 1 },
+{ juan : 1 },
 
 Close write stream
