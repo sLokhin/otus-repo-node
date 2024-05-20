@@ -1,0 +1,33 @@
+{
+  "name": "otus-repo-node",
+  "version": "1.0.0",
+  "description": "Node exercises",
+  "main": "index.js",
+  "type": "module",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "start": "node lesson-1",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sLokhin/otus-repo-node.git"
+  },
+  "author": "Lokhin Sergey",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sLokhin/otus-repo-node/issues"
+  },
+  "homepage": "https://github.com/sLokhin/otus-repo-node#readme",
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "prettier": "^3.2.5"
+  },
+  "dependencies": {
+    "@otus-repo-node/repo-tree": "^1.0.0"
+  }
+}
