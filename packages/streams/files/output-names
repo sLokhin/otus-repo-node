@@ -1,0 +1,21 @@
+Words array:
+
+alex
+alex
+juan
+dima
+
+Sorted words:
+
+alex
+alex
+dima
+juan
+
+Result vector:
+
+{"word":"alex","amount":2}
+{"word":"dima","amount":1}
+{"word":"juan","amount":1}
+
+Close write stream

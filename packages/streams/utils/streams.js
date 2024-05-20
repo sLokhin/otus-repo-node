@@ -4,10 +4,10 @@ const space = '\u0020';
 const newLine = '\u000A';
 const nonTextCharacters = ['.', ',', ':', ';', '%'];
 
-const readStream = fs.createReadStream('../files/input-words', {
+const readStream = fs.createReadStream('../files/input-names', {
   encoding: 'utf8',
 });
-const writeStream = fs.createWriteStream('../files/output-words', {
+const writeStream = fs.createWriteStream('../files/output-names', {
   encoding: 'utf8',
 });
 
