@@ -11,6 +11,12 @@ const options = [
   },
 ];
 
-options.forEach((options) => {
-  executeStreams(options);
-});
+function processDemoFiles() {
+  options.forEach((options) => {
+    executeStreams(options);
+  });
+}
+
+// processDemoFiles();
+
+export { processDemoFiles };
