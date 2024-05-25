@@ -5,7 +5,7 @@ const newLine = '\u000A';
 function buildTree(data) {
   const { name, items } = data;
 
-  const root = String(name) ? `${name}${newLine}` : `Root${newLine}`;
+  const root = String(name.trim()) ? `${name}${newLine}` : `Root${newLine}`;
 
   if (!hasChildItems(data)) return root;
 
@@ -35,4 +35,4 @@ function hasChildItems(item) {
   return Array.isArray(items) && items.length > 0;
 }
 
-export { buildTree };
+export { buildTree, buildBranch, hasChildItems };
