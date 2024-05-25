@@ -1,4 +1,5 @@
-import { buildTree, buildBranch, hasChildItems } from './tree.js';
+import * as utils from './tree.js';
+const { buildTree, buildBranch, hasChildItems } = utils;
 
 const testData0 = {
   name: '',
@@ -78,6 +79,16 @@ describe('Test buildTree() function', () => {
   it('simple tree with two items', () => {
     const data = testData3;
     expect(buildTree(data)).toBe('TestRoot3\n├item1\n└item2\n');
+  });
+
+  it('spy on "buildBranch()" function', () => {
+    const buildBranchSpy = jest.spyOn(utils, 'buildBranch');
+    const data = testData3;
+
+    utils.buildTree(data);
+    // utils.buildBranch(data.items);
+
+    expect(buildBranchSpy).toHaveBeenCalled();
   });
 });
 
