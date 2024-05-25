@@ -9,6 +9,7 @@
   ],
   "scripts": {
     "start": "node lesson-1",
+    "generate:tree": "node generate-random-tree",
     "test": "jest",
     "test:coverage": "jest --collect-coverage"
   },

@@ -1,5 +1,4 @@
 import { faker } from '@faker-js/faker';
-import { buildTree } from './tree.js';
 
 function getRandomFileName() {
   return faker.system.fileName({
@@ -34,10 +33,5 @@ function getRandomBranch(currentDepth, maxDepth) {
 function getRandomData(maxDepth = 0) {
   return getRandomBranch(0, maxDepth);
 }
-
-const randomData = getRandomData(3);
-
-console.log(randomData);
-console.log(buildTree(randomData));
 
 export { getRandomData };
