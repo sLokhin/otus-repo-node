@@ -19,6 +19,41 @@ const testData3 = {
   items: [{ name: 'item1' }, { name: 'item2' }],
 };
 
+const testData4 = {
+  name: 'TestRoot4',
+  items: [
+    {
+      name: 2,
+      items: [{ name: 3 }, { name: 4 }],
+    },
+    {
+      name: 5,
+      items: [
+        {
+          name: 6,
+          items: [
+            { name: 7 },
+            { name: 8, items: [{ name: 10 }, { name: 11 }] },
+            { name: 9 },
+          ],
+        },
+      ],
+    },
+  ],
+};
+
+describe('Test snapshot', () => {
+  it('simple tree with two branches', () => {
+    const data = testData3;
+    expect(buildTree(data)).toMatchSnapshot();
+  });
+
+  it('complex recursive tree', () => {
+    const data = testData4;
+    expect(buildTree(data)).toMatchSnapshot();
+  });
+});
+
 describe('Test buildTree() function', () => {
   afterEach(() => {
     jest.restoreAllMocks();
