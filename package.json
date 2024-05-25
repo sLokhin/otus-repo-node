@@ -9,7 +9,8 @@
   ],
   "scripts": {
     "start": "node lesson-1",
-    "test": "jest"
+    "test": "jest",
+    "test:coverage": "jest --collect-coverage"
   },
   "repository": {
     "type": "git",
