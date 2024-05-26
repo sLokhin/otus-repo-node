@@ -1,0 +1,17 @@
+{
+  "name": "@otus-repo-node/streams",
+  "version": "1.0.0",
+  "description": "Streams",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sLokhin/otus-repo-node.git",
+    "directory": "packages/streams"
+  },
+  "author": "Lokhin Sergey",
+  "license": "ISC"
+}

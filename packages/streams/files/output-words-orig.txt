@@ -1,0 +1,26 @@
+Words array:
+
+ab
+cb
+bss
+cb
+b
+cb
+
+Sorted words:
+
+ab
+b
+bss
+cb
+cb
+cb
+
+Result vector:
+
+{ ab : 1 },
+{ b : 1 },
+{ bss : 1 },
+{ cb : 3 },
+
+Close write stream

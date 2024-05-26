@@ -12,6 +12,7 @@
     "generate:tree": "node generate-random-tree",
     "test": "jest",
     "test:coverage": "jest --collect-coverage"
+    "lesson:streams": "node lesson-4",
   },
   "repository": {
     "type": "git",
@@ -37,6 +38,7 @@
     "ts-node": "^10.9.2"
   },
   "dependencies": {
-    "@otus-repo-node/repo-tree": "^1.0.0"
+    "@otus-repo-node/repo-tree": "^1.0.0",
+    "@otus-repo-node/streams": "^1.0.0"
   }
 }
