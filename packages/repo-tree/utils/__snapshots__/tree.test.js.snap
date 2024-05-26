@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test snapshot complex recursive tree 1`] = `
+"TestRoot4
+├2
+│├3
+│└4
+└5
+ └6
+  ├7
+  ├8
+  │├10
+  │└11
+  └9
+"
+`;
+
+exports[`Test snapshot simple tree with two branches 1`] = `
+"TestRoot3
+├item1
+└item2
+"
+`;

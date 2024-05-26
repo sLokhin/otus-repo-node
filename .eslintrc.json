@@ -12,6 +12,14 @@
     {
       "env": { "node": true },
       "files": [".eslintrc.{js,cjs}"]
+    },
+    {
+      "files": ["packages/**/*"],
+      "plugins": ["jest"],
+      "extends": ["plugin:jest/recommended"],
+      "env": {
+        "jest": true
+      }
     }
   ],
   "rules": {
