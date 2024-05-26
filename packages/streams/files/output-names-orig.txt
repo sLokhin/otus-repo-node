@@ -1,0 +1,21 @@
+Words array:
+
+alex
+alex
+juan
+dima
+
+Sorted words:
+
+alex
+alex
+dima
+juan
+
+Result vector:
+
+{ alex : 2 },
+{ dima : 1 },
+{ juan : 1 },
+
+Close write stream
