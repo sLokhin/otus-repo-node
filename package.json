@@ -11,8 +11,8 @@
     "start": "node lesson-1",
     "generate:tree": "node generate-random-tree",
     "test": "jest",
-    "test:coverage": "jest --collect-coverage"
-    "lesson:streams": "node lesson-4",
+    "test:coverage": "jest --collect-coverage",
+    "lesson:streams": "node lesson-4"
   },
   "repository": {
     "type": "git",
