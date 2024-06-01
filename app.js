@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import express from 'express';
 import path from 'node:path';
 import createHttpError from 'http-errors';
