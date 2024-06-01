@@ -44,6 +44,7 @@
     "@otus-repo-node/repo-tree": "^1.0.0",
     "@otus-repo-node/streams": "^1.0.0",
     "ejs": "^3.1.10",
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "http-errors": "^2.0.0"
   }
 }
