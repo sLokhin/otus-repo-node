@@ -29,13 +29,6 @@
         "endOfLine": "auto"
       }
     ],
-    "no-restricted-syntax": [
-      "error",
-      {
-        "selector": "ExportDefaultDeclaration",
-        "message": "Restricted default export, prefer named exports!"
-      }
-    ],
     "prefer-const": [
       "error",
       {
