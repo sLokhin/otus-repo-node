@@ -48,7 +48,6 @@ describe('User API CRUD operations', () => {
       name: 'Jane Doe',
       password: 'JaneDoePassword',
       email: 'jane@example.com',
-      test: 1234,
     });
 
     expect(response.status).toBe(200);
