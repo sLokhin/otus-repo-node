@@ -48,6 +48,8 @@ describe('Login page', () => {
     });
 
     expect(response.status).toBe(202);
-    expect(response.body).toEqual({});
+    expect(response.body.name).toBe('New User');
+    expect(response.body.password).toBe('password');
+    expect(response.body.status).toBe('online');
   });
 });
