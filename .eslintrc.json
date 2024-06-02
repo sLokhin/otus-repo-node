@@ -14,7 +14,7 @@
       "files": [".eslintrc.{js,cjs}"]
     },
     {
-      "files": ["packages/**/*"],
+      "files": ["**/*.test.js"],
       "plugins": ["jest"],
       "extends": ["plugin:jest/recommended"],
       "env": {
