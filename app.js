@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import * as fs from 'node:fs';
+import https from 'node:https';
 import express from 'express';
 import path from 'node:path';
 import createHttpError from 'http-errors';
@@ -11,9 +12,20 @@ import usersRouter from './routes/users.js';
 const __dirname = path.resolve();
 const PORT = process.env.PORT ?? 3000;
 
+// Read SSL certificate and key files
+const credentials = {
+  key: fs.readFileSync(
+    path.join(__dirname, '/certificates/localhost-key.pem'),
+    'utf8'
+  ),
+  cert: fs.readFileSync(
+    path.join(__dirname, '/certificates/localhost.pem'),
+    'utf8'
+  ),
+};
+
 const app = express();
 
-console.log('aaaa ', path.join(__dirname, './logs/access.log'));
 const accessLogStream = fs.createWriteStream(
   path.join(__dirname, '/logs/access.log'),
   {
@@ -45,6 +57,6 @@ app.use((err, req, res, next) => {
   res.render('error');
 });
 
-app.listen(PORT, () => {
+https.createServer(credentials, app).listen(PORT, () => {
   console.log(`Server has been started on port ${PORT}`);
 });
