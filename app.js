@@ -6,6 +6,8 @@ import path from 'node:path';
 import createHttpError from 'http-errors';
 import morgan from 'morgan';
 
+import loginRouter from './routes/login.js';
+import logoutRouter from './routes/logout.js';
 import indexRouter from './routes/index.js';
 import usersRouter from './routes/users.js';
 
@@ -40,6 +42,8 @@ app.set('view engine', 'ejs');
 app.use(morgan('common', { stream: accessLogStream }));
 
 app.use('/', indexRouter);
+app.use('/login', loginRouter);
+app.use('/logout', logoutRouter);
 app.use('/users', usersRouter.viewRouter);
 app.use('/api/users', usersRouter.apiRouter);
 

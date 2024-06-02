@@ -1,51 +1,8 @@
 import express from 'express';
+import { User, UserRepository } from '../classes/index.js';
 
 const viewRouter = express.Router();
 const apiRouter = express.Router();
-
-class User {
-  constructor(id, name, email) {
-    this.id = id;
-    this.name = name;
-    this.email = email;
-  }
-}
-
-class UserRepository {
-  #users = [];
-  #nextId = 1;
-
-  getAll() {
-    return this.#users;
-  }
-
-  getById(id) {
-    return this.#users.find((user) => user.id === id);
-  }
-
-  create(user) {
-    user.id = this.#nextId++;
-    this.#users.push(user);
-    return user;
-  }
-
-  update(id, updatedUser) {
-    const index = this.#users.findIndex((user) => user.id === id);
-    if (index !== -1) {
-      this.#users[index] = { id, ...updatedUser };
-      return this.#users[index];
-    }
-    return null;
-  }
-
-  delete(id) {
-    const index = this.#users.findIndex((user) => user.id === id);
-    if (index !== -1) {
-      return this.#users.splice(index, 1);
-    }
-    return null;
-  }
-}
 
 const userRepository = new UserRepository();
 
@@ -71,7 +28,12 @@ apiRouter.get('/:id', (req, res) => {
 });
 
 apiRouter.post('/', (req, res) => {
-  const newUser = new User(null, req.body.name, req.body.email);
+  const newUser = new User(
+    null,
+    req.body.password,
+    req.body.name,
+    req.body.email
+  );
   const createdUser = userRepository.create(newUser);
   res.status(201).json(createdUser);
 });
