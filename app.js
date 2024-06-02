@@ -11,6 +11,7 @@ import logoutRouter from './routes/logout.js';
 import signupRouter from './routes/signup.js';
 import indexRouter from './routes/index.js';
 import usersRouter from './routes/users.js';
+import coursesRouter from './routes/courses.js';
 
 const __dirname = path.resolve();
 const PORT = process.env.PORT ?? 3000;
@@ -48,6 +49,8 @@ app.use('/logout', logoutRouter);
 app.use('/signup', signupRouter);
 app.use('/users', usersRouter.viewRouter);
 app.use('/api/users', usersRouter.apiRouter);
+app.use('/courses', coursesRouter.viewRouter);
+app.use('/api/courses', coursesRouter.apiRouter);
 
 app.use((req, res, next) => {
   next(createHttpError(404));

@@ -7,11 +7,11 @@ const apiRouter = express.Router();
 const userRepository = new UserRepository();
 
 viewRouter.get('/', (req, res) => {
-  res.send('View router: respond with a resource');
+  res.send('Course view router: respond with a resource');
 });
 
 apiRouter.get('/', (req, res) => {
-  res.send('API router: respond with a resource');
+  res.send('Course API router: respond with a resource');
 });
 
 apiRouter.get('/all', (req, res) => {
