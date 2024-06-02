@@ -8,6 +8,7 @@ import morgan from 'morgan';
 
 import loginRouter from './routes/login.js';
 import logoutRouter from './routes/logout.js';
+import signupRouter from './routes/signup.js';
 import indexRouter from './routes/index.js';
 import usersRouter from './routes/users.js';
 
@@ -44,6 +45,7 @@ app.use(morgan('common', { stream: accessLogStream }));
 app.use('/', indexRouter);
 app.use('/login', loginRouter);
 app.use('/logout', logoutRouter);
+app.use('/signup', signupRouter);
 app.use('/users', usersRouter.viewRouter);
 app.use('/api/users', usersRouter.apiRouter);
 
