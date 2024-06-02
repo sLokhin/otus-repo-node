@@ -39,7 +39,11 @@ apiRouter.post('/', (req, res) => {
 });
 
 apiRouter.put('/:id', (req, res) => {
-  const updatedUser = { name: req.body.name, email: req.body.email };
+  const updatedUser = {
+    name: req.body.name,
+    password: req.body.password,
+    email: req.body.email,
+  };
   const user = userRepository.update(parseInt(req.params.id), updatedUser);
   if (user) {
     res.json(user);

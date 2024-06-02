@@ -10,11 +10,11 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  const username = req.body.username;
+  const name = req.body.name;
   const password = req.body.password;
   const email = req.body.email;
 
-  if (!username || !password || !email) {
+  if (!name || !password || !email) {
     res.status(400).send('Signup page: Fill in all fields');
   } else {
     const newUser = new User(

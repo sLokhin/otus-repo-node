@@ -46,14 +46,15 @@ describe('User API CRUD operations', () => {
   it('should update a user by ID', async () => {
     const response = await request(app).put(`/api/users/${userId}`).send({
       name: 'Jane Doe',
-      password: 'JohnDoePassword',
+      password: 'JaneDoePassword',
       email: 'jane@example.com',
+      test: 1234,
     });
 
     expect(response.status).toBe(200);
     expect(response.body).toHaveProperty('id', userId);
     expect(response.body.name).toBe('Jane Doe');
-    expect(response.body.password).toBe('JohnDoePassword');
+    expect(response.body.password).toBe('JaneDoePassword');
     expect(response.body.email).toBe('jane@example.com');
   });
 

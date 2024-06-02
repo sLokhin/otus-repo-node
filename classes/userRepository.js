@@ -33,8 +33,8 @@ class UserRepository {
     return null;
   }
 
-  login(userName) {
-    const user = this.#users.find((user) => user.userName === userName);
+  login(name) {
+    const user = this.#users.find((user) => user.name === name);
     if (user !== -1) {
       user.status = 'online';
       return user;
@@ -42,8 +42,8 @@ class UserRepository {
     return null;
   }
 
-  logout(userName) {
-    const user = this.#users.find((user) => user.userName === userName);
+  logout(name) {
+    const user = this.#users.find((user) => user.name === name);
     if (user !== -1) {
       user.status = 'offline';
       return user;

@@ -10,17 +10,16 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  const username = req.body.username;
+  const name = req.body.name;
   const password = req.body.password;
 
-  if (!username || !password) {
+  if (!name || !password) {
     res.status(401).send('Login page: Please enter both username and password');
   } else {
     userRepository.getAll().filter((user) => {
-      if (user.username === username && user.password === password) {
-        res
-          .status(202)
-          .send(`Login page: Username: ${username} --- Password: ${password}`);
+      if (user.name === name && user.password === password) {
+        const loggedInUser = userRepository.login(name);
+        res.status(202).json(loggedInUser);
       }
     });
     res.status(404).send('Login page: User not found');
