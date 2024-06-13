@@ -14,7 +14,7 @@
       "files": [".eslintrc.{js,cjs}"]
     },
     {
-      "files": ["packages/**/*"],
+      "files": ["**/*.test.js"],
       "plugins": ["jest"],
       "extends": ["plugin:jest/recommended"],
       "env": {
@@ -27,13 +27,6 @@
       "error",
       {
         "endOfLine": "auto"
-      }
-    ],
-    "no-restricted-syntax": [
-      "error",
-      {
-        "selector": "ExportDefaultDeclaration",
-        "message": "Restricted default export, prefer named exports!"
       }
     ],
     "prefer-const": [
