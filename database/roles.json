@@ -1,0 +1,23 @@
+[
+  {
+    "_id": {
+      "$oid": "666c235d35f4cd624ea26a13"
+    },
+    "name": "student",
+    "description": "student account with rights to view courses"
+  },
+  {
+    "_id": {
+      "$oid": "666c236735f4cd624ea26a14"
+    },
+    "name": "teacher",
+    "description": "teacher account with rights to view, edit, create courses"
+  },
+  {
+    "_id": {
+      "$oid": "666c237035f4cd624ea26a15"
+    },
+    "name": "admin",
+    "description": "super user account"
+  }
+]

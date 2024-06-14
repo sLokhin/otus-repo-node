@@ -1,0 +1,78 @@
+[
+  {
+    "_id": {
+      "$oid": "666c2e6b35f4cd624ea26a16"
+    },
+    "login": "joliver",
+    "password": "password",
+    "name": "John Oliver",
+    "email": "joliver@mail.com",
+    "status": "offline",
+    "role": "user",
+    "courses": [
+      "Node.js Developer",
+      "React.js Developer",
+      "Fullstack Developer"
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "666c2e7535f4cd624ea26a17"
+    },
+    "login": "rhill",
+    "password": "password",
+    "name": "Robert Hill",
+    "email": "rhill@mail.com",
+    "status": "offline",
+    "role": "user",
+    "courses": ["React.js Developer"]
+  },
+  {
+    "_id": {
+      "$oid": "666c2e7d35f4cd624ea26a18"
+    },
+    "login": "jking",
+    "password": "password",
+    "name": "James King",
+    "email": "jking@mail.com",
+    "status": "offline",
+    "role": "user",
+    "courses": ["Fullstack Developer"]
+  },
+  {
+    "_id": {
+      "$oid": "666c2e8635f4cd624ea26a19"
+    },
+    "login": "adavis",
+    "password": "password",
+    "name": "Adam Davis",
+    "email": "adavis@mail.com",
+    "status": "offline",
+    "role": "teacher",
+    "courses": ["Node.js Developer"]
+  },
+  {
+    "_id": {
+      "$oid": "666c2e8e35f4cd624ea26a1a"
+    },
+    "login": "hjones",
+    "password": "password",
+    "name": "Harry Jones",
+    "email": "hjones@mail.com",
+    "status": "offline",
+    "role": "teacher",
+    "courses": ["React.js Developer", "Fullstack Developer"]
+  },
+  {
+    "_id": {
+      "$oid": "666c2e9635f4cd624ea26a1b"
+    },
+    "login": "mjackson",
+    "password": "password",
+    "name": "Mario Jackson",
+    "email": "mjackson@mail.com",
+    "status": "offline",
+    "role": "admin",
+    "courses": []
+  }
+]

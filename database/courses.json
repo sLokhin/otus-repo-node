@@ -1,0 +1,84 @@
+[
+  {
+    "_id": {
+      "$oid": "666c30fb35f4cd624ea26a1c"
+    },
+    "title": "Node.js Developer",
+    "description": "Development of server applications on Node.js",
+    "difficulty": "average",
+    "tags": ["node", "express", "mongoDB"],
+    "authors": ["Adam Davis"],
+    "teachers": ["Adam Davis"],
+    "admins": ["Adam Davis", "Harry Jones"],
+    "comments": [
+      {
+        "date": {
+          "$date": "2024-04-01T00:00:00.000Z"
+        },
+        "author": "Adam Davis",
+        "content": "I hope my first course will be useful"
+      }
+    ],
+    "rating": 4.7,
+    "lessons": [
+      "Введение в Node и NPM",
+      "Web Servers",
+      "Введение в MongoDB",
+      "Введение в Nest.js",
+      "Введение в GraphQL"
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "666c328835f4cd624ea26a1d"
+    },
+    "title": "React.js Developer",
+    "description": "The most popular JS framework for Frontend development",
+    "difficulty": "average",
+    "tags": ["react", "typescript", "redux"],
+    "authors": ["Harry Jones"],
+    "teachers": ["Harry Jones"],
+    "admins": ["Adam Davis", "Harry Jones"],
+    "comments": [
+      {
+        "date": {
+          "$date": "2024-04-24T00:00:00.000Z"
+        },
+        "author": "Robert Hill",
+        "content": "Excellent course for middle developers"
+      }
+    ],
+    "rating": 4.8,
+    "lessons": [
+      "Gitflow",
+      "Установка и настройка React",
+      "React components lifecycle",
+      "React Hooks",
+      "React + redux",
+      "Redux toolkit"
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "666c44c135f4cd624ea26a1e"
+    },
+    "title": "Fullstack Developer",
+    "description": "The most popular JS framework for Frontend development",
+    "difficulty": "basic",
+    "tags": ["html", "css", "react", "typescript", "node", "mongoDB"],
+    "authors": ["Harry Jones"],
+    "teachers": ["Harry Jones"],
+    "admins": ["Adam Davis", "Harry Jones"],
+    "comments": [],
+    "rating": 4.5,
+    "lessons": [
+      "Gitflow",
+      "Создание и стилизация HTML страниц",
+      "ООП в JavaScript",
+      "Установка и настройка React",
+      "React Hooks",
+      "Введение в Node и NPM",
+      "Введение в MongoDB"
+    ]
+  }
+]
