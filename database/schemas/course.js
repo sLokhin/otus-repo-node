@@ -16,6 +16,26 @@ const courseSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  difficulty: {
+    type: String,
+    required: true,
+  },
+  tags: {
+    type: [String],
+    required: true,
+  },
+  authors: {
+    type: [String],
+    required: true,
+  },
+  teachers: {
+    type: [String],
+    required: true,
+  },
+  admins: {
+    type: [String],
+    required: true,
+  },
   comments: {
     type: [commentSchema],
     required: true,
@@ -24,9 +44,9 @@ const courseSchema = mongoose.Schema({
     type: Number,
     required: true,
   },
-  media: {
+  lessons: {
     type: [String],
-    required: false,
+    required: true,
   },
 });
 

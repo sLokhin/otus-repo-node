@@ -1,8 +1,9 @@
 [
   {
     "_id": {
-      "$oid": "666c30fb35f4cd624ea26a1c"
+      "$oid": "666d8e408bad0e5ea0fa61bc"
     },
+    "id": 0,
     "title": "Node.js Developer",
     "description": "Development of server applications on Node.js",
     "difficulty": "average",
@@ -16,7 +17,10 @@
           "$date": "2024-04-01T00:00:00.000Z"
         },
         "author": "Adam Davis",
-        "content": "I hope my first course will be useful"
+        "content": "I hope my first course will be useful",
+        "_id": {
+          "$oid": "666d8e408bad0e5ea0fa61bd"
+        }
       }
     ],
     "rating": 4.7,
@@ -26,12 +30,14 @@
       "Введение в MongoDB",
       "Введение в Nest.js",
       "Введение в GraphQL"
-    ]
+    ],
+    "__v": 0
   },
   {
     "_id": {
-      "$oid": "666c328835f4cd624ea26a1d"
+      "$oid": "666d8e408bad0e5ea0fa61bf"
     },
+    "id": 1,
     "title": "React.js Developer",
     "description": "The most popular JS framework for Frontend development",
     "difficulty": "average",
@@ -45,7 +51,10 @@
           "$date": "2024-04-24T00:00:00.000Z"
         },
         "author": "Robert Hill",
-        "content": "Excellent course for middle developers"
+        "content": "Excellent course for middle developers",
+        "_id": {
+          "$oid": "666d8e408bad0e5ea0fa61c0"
+        }
       }
     ],
     "rating": 4.8,
@@ -56,12 +65,14 @@
       "React Hooks",
       "React + redux",
       "Redux toolkit"
-    ]
+    ],
+    "__v": 0
   },
   {
     "_id": {
-      "$oid": "666c44c135f4cd624ea26a1e"
+      "$oid": "666d8e408bad0e5ea0fa61c2"
     },
+    "id": 2,
     "title": "Fullstack Developer",
     "description": "The most popular JS framework for Frontend development",
     "difficulty": "basic",
@@ -79,6 +90,7 @@
       "React Hooks",
       "Введение в Node и NPM",
       "Введение в MongoDB"
-    ]
+    ],
+    "__v": 0
   }
 ]

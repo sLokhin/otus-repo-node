@@ -1,23 +1,29 @@
 [
   {
     "_id": {
-      "$oid": "666c235d35f4cd624ea26a13"
+      "$oid": "666d8cb3cfa9dea9e631268c"
     },
+    "id": 0,
     "name": "student",
-    "description": "student account with rights to view courses"
+    "description": "student account with rights to view courses",
+    "__v": 0
   },
   {
     "_id": {
-      "$oid": "666c236735f4cd624ea26a14"
+      "$oid": "666d8cb4cfa9dea9e631268f"
     },
+    "id": 1,
     "name": "teacher",
-    "description": "teacher account with rights to view, edit, create courses"
+    "description": "teacher account with rights to view, edit, create courses",
+    "__v": 0
   },
   {
     "_id": {
-      "$oid": "666c237035f4cd624ea26a15"
+      "$oid": "666d8cb4cfa9dea9e6312691"
     },
+    "id": 2,
     "name": "admin",
-    "description": "super user account"
+    "description": "super user account",
+    "__v": 0
   }
 ]
