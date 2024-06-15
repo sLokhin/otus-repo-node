@@ -26,6 +26,16 @@ const userSchema = mongoose.Schema({
   role: {
     type: String,
     required: true,
+    validate: (val) => {
+      return new Promise((resolve) => {
+        mongoose
+          .model('roles')
+          .findOne({ name: val })
+          .then((res) => {
+            resolve(res ? true : false);
+          });
+      });
+    },
   },
   courses: {
     type: [String],

@@ -41,7 +41,7 @@ const createUsers = async () => {
       password: 'password',
       name: 'John Oliver',
       email: 'joliver@mail.com',
-      role: 'user',
+      role: 'student',
       courses: [
         'Node.js Developer',
         'React.js Developer',
@@ -54,7 +54,7 @@ const createUsers = async () => {
       password: 'password',
       name: 'Robert Hill',
       email: 'rhill@mail.com',
-      role: 'user',
+      role: 'student',
       courses: ['React.js Developer'],
     },
     {
@@ -63,7 +63,7 @@ const createUsers = async () => {
       password: 'password',
       name: 'James King',
       email: 'jking@mail.com',
-      role: 'user',
+      role: 'student',
       courses: ['Fullstack Developer'],
     },
     {

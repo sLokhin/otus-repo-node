@@ -1,7 +1,7 @@
 [
   {
     "_id": {
-      "$oid": "666d8cb4cfa9dea9e63126a7"
+      "$oid": "666d9c06f81d6c1fe0090c59"
     },
     "id": 0,
     "title": "Gitflow",
@@ -14,7 +14,7 @@
         "author": "John Oliver",
         "content": "Good introductory tutorial",
         "_id": {
-          "$oid": "666d8cb4cfa9dea9e63126a8"
+          "$oid": "666d9c06f81d6c1fe0090c5a"
         }
       },
       {
@@ -24,7 +24,7 @@
         "author": "James King",
         "content": "Now it's clearer to me",
         "_id": {
-          "$oid": "666d8cb4cfa9dea9e63126a9"
+          "$oid": "666d9c06f81d6c1fe0090c5b"
         }
       }
     ],
@@ -34,7 +34,7 @@
   },
   {
     "_id": {
-      "$oid": "666d8cb4cfa9dea9e63126ab"
+      "$oid": "666d9c06f81d6c1fe0090c5d"
     },
     "id": 1,
     "title": "Создание и стилизация HTML страниц",
@@ -46,7 +46,7 @@
   },
   {
     "_id": {
-      "$oid": "666d8cb4cfa9dea9e63126ad"
+      "$oid": "666d9c06f81d6c1fe0090c5f"
     },
     "id": 2,
     "title": "ООП в JavaScript",
@@ -58,7 +58,7 @@
   },
   {
     "_id": {
-      "$oid": "666d8cb4cfa9dea9e63126af"
+      "$oid": "666d9c06f81d6c1fe0090c61"
     },
     "id": 3,
     "title": "Установка и настройка React",
@@ -70,7 +70,7 @@
   },
   {
     "_id": {
-      "$oid": "666d8cb4cfa9dea9e63126b1"
+      "$oid": "666d9c06f81d6c1fe0090c63"
     },
     "id": 4,
     "title": "React Hooks",
@@ -82,7 +82,7 @@
   },
   {
     "_id": {
-      "$oid": "666d8cb4cfa9dea9e63126b3"
+      "$oid": "666d9c06f81d6c1fe0090c65"
     },
     "id": 5,
     "title": "React components lifecycle",
@@ -94,7 +94,7 @@
   },
   {
     "_id": {
-      "$oid": "666d8cb4cfa9dea9e63126b5"
+      "$oid": "666d9c06f81d6c1fe0090c67"
     },
     "id": 6,
     "title": "React + redux",
@@ -106,7 +106,7 @@
   },
   {
     "_id": {
-      "$oid": "666d8cb4cfa9dea9e63126b7"
+      "$oid": "666d9c06f81d6c1fe0090c69"
     },
     "id": 7,
     "title": "Redux toolkit",
@@ -118,7 +118,7 @@
   },
   {
     "_id": {
-      "$oid": "666d8cb4cfa9dea9e63126b9"
+      "$oid": "666d9c06f81d6c1fe0090c6b"
     },
     "id": 8,
     "title": "Введение в Node и NPM",
@@ -131,7 +131,7 @@
         "author": "John Oliver",
         "content": "Great lesson, thanks!",
         "_id": {
-          "$oid": "666d8cb4cfa9dea9e63126ba"
+          "$oid": "666d9c06f81d6c1fe0090c6c"
         }
       },
       {
@@ -141,7 +141,7 @@
         "author": "Mario Jackson",
         "content": "Everything is clear, thank you!",
         "_id": {
-          "$oid": "666d8cb4cfa9dea9e63126bb"
+          "$oid": "666d9c06f81d6c1fe0090c6d"
         }
       }
     ],
@@ -151,7 +151,7 @@
   },
   {
     "_id": {
-      "$oid": "666d8cb4cfa9dea9e63126bd"
+      "$oid": "666d9c06f81d6c1fe0090c6f"
     },
     "id": 9,
     "title": "Введение в MongoDB",
@@ -163,7 +163,7 @@
   },
   {
     "_id": {
-      "$oid": "666d8cb4cfa9dea9e63126bf"
+      "$oid": "666d9c06f81d6c1fe0090c72"
     },
     "id": 10,
     "title": "Введение в Nest.js",
@@ -175,7 +175,7 @@
   },
   {
     "_id": {
-      "$oid": "666d8cb4cfa9dea9e63126c2"
+      "$oid": "666d9c06f81d6c1fe0090c74"
     },
     "id": 11,
     "title": "Введение в GraphQL",
