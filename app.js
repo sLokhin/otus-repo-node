@@ -10,6 +10,7 @@ import loginRouter from './routes/login.js';
 import logoutRouter from './routes/logout.js';
 import signupRouter from './routes/signup.js';
 import indexRouter from './routes/index.js';
+import rolesRouter from './routes/roles.js';
 import usersRouter from './routes/users.js';
 import coursesRouter from './routes/courses.js';
 
@@ -41,12 +42,14 @@ const accessLogStream = fs.createWriteStream(
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+app.use(express.json());
 app.use(morgan('common', { stream: accessLogStream }));
 
 app.use('/', indexRouter);
 app.use('/login', loginRouter);
 app.use('/logout', logoutRouter);
 app.use('/signup', signupRouter);
+app.use('/api/roles', rolesRouter.apiRouter);
 app.use('/users', usersRouter.viewRouter);
 app.use('/api/users', usersRouter.apiRouter);
 app.use('/courses', coursesRouter.viewRouter);
