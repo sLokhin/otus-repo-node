@@ -1,0 +1,96 @@
+[
+  {
+    "_id": {
+      "$oid": "666d9c06f81d6c1fe0090c76"
+    },
+    "id": 0,
+    "title": "Node.js Developer",
+    "description": "Development of server applications on Node.js",
+    "difficulty": "average",
+    "tags": ["node", "express", "mongoDB"],
+    "authors": ["Adam Davis"],
+    "teachers": ["Adam Davis"],
+    "admins": ["Adam Davis", "Harry Jones"],
+    "comments": [
+      {
+        "date": {
+          "$date": "2024-04-01T00:00:00.000Z"
+        },
+        "author": "Adam Davis",
+        "content": "I hope my first course will be useful",
+        "_id": {
+          "$oid": "666d9c06f81d6c1fe0090c77"
+        }
+      }
+    ],
+    "rating": 4.7,
+    "lessons": [
+      "Введение в Node и NPM",
+      "Web Servers",
+      "Введение в MongoDB",
+      "Введение в Nest.js",
+      "Введение в GraphQL"
+    ],
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "666d9c06f81d6c1fe0090c79"
+    },
+    "id": 1,
+    "title": "React.js Developer",
+    "description": "The most popular JS framework for Frontend development",
+    "difficulty": "average",
+    "tags": ["react", "typescript", "redux"],
+    "authors": ["Harry Jones"],
+    "teachers": ["Harry Jones"],
+    "admins": ["Adam Davis", "Harry Jones"],
+    "comments": [
+      {
+        "date": {
+          "$date": "2024-04-24T00:00:00.000Z"
+        },
+        "author": "Robert Hill",
+        "content": "Excellent course for middle developers",
+        "_id": {
+          "$oid": "666d9c06f81d6c1fe0090c7a"
+        }
+      }
+    ],
+    "rating": 4.8,
+    "lessons": [
+      "Gitflow",
+      "Установка и настройка React",
+      "React components lifecycle",
+      "React Hooks",
+      "React + redux",
+      "Redux toolkit"
+    ],
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "666d9c06f81d6c1fe0090c7c"
+    },
+    "id": 2,
+    "title": "Fullstack Developer",
+    "description": "The most popular JS framework for Frontend development",
+    "difficulty": "basic",
+    "tags": ["html", "css", "react", "typescript", "node", "mongoDB"],
+    "authors": ["Harry Jones"],
+    "teachers": ["Harry Jones"],
+    "admins": ["Adam Davis", "Harry Jones"],
+    "comments": [],
+    "rating": 4.5,
+    "lessons": [
+      "Gitflow",
+      "Создание и стилизация HTML страниц",
+      "ООП в JavaScript",
+      "Установка и настройка React",
+      "React Hooks",
+      "Введение в Node и NPM",
+      "Введение в MongoDB"
+    ],
+    "__v": 0
+  }
+]

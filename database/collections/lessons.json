@@ -1,0 +1,188 @@
+[
+  {
+    "_id": {
+      "$oid": "666d9c06f81d6c1fe0090c59"
+    },
+    "id": 0,
+    "title": "Gitflow",
+    "description": "Урок по ведению репозитория курса, правила создания веток для сдачи практических заданий",
+    "comments": [
+      {
+        "date": {
+          "$date": "2024-05-16T00:00:00.000Z"
+        },
+        "author": "John Oliver",
+        "content": "Good introductory tutorial",
+        "_id": {
+          "$oid": "666d9c06f81d6c1fe0090c5a"
+        }
+      },
+      {
+        "date": {
+          "$date": "2024-05-19T00:00:00.000Z"
+        },
+        "author": "James King",
+        "content": "Now it's clearer to me",
+        "_id": {
+          "$oid": "666d9c06f81d6c1fe0090c5b"
+        }
+      }
+    ],
+    "rating": 5,
+    "media": [],
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "666d9c06f81d6c1fe0090c5d"
+    },
+    "id": 1,
+    "title": "Создание и стилизация HTML страниц",
+    "description": "Урок посвящен работе с разметкой страницы (HTML) и ее стилизацией (CSS)",
+    "comments": [],
+    "rating": 5,
+    "media": [],
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "666d9c06f81d6c1fe0090c5f"
+    },
+    "id": 2,
+    "title": "ООП в JavaScript",
+    "description": "Объектно-ориентированный JavaScript простыми словами",
+    "comments": [],
+    "rating": 5,
+    "media": [],
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "666d9c06f81d6c1fe0090c61"
+    },
+    "id": 3,
+    "title": "Установка и настройка React",
+    "description": "Настройка проекта ReactJS с использованием create-react-app (CRA) либо через конфигурирацию приложения, используя webpack + babel",
+    "comments": [],
+    "rating": 5,
+    "media": [],
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "666d9c06f81d6c1fe0090c63"
+    },
+    "id": 4,
+    "title": "React Hooks",
+    "description": "React hooks",
+    "comments": [],
+    "rating": 5,
+    "media": [],
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "666d9c06f81d6c1fe0090c65"
+    },
+    "id": 5,
+    "title": "React components lifecycle",
+    "description": "Жизненный цикл компонентов, Lifecycle hooks",
+    "comments": [],
+    "rating": 5,
+    "media": [],
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "666d9c06f81d6c1fe0090c67"
+    },
+    "id": 6,
+    "title": "React + redux",
+    "description": "Работать с Redux в React приложении",
+    "comments": [],
+    "rating": 5,
+    "media": [],
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "666d9c06f81d6c1fe0090c69"
+    },
+    "id": 7,
+    "title": "Redux toolkit",
+    "description": "Использование Redux-toolkit. Разобраться, что такое тестирование Redux, что нужно тестировать и как.",
+    "comments": [],
+    "rating": 5,
+    "media": [],
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "666d9c06f81d6c1fe0090c6b"
+    },
+    "id": 8,
+    "title": "Введение в Node и NPM",
+    "description": "Обзор и установка окружения Node.js",
+    "comments": [
+      {
+        "date": {
+          "$date": "2024-05-10T00:00:00.000Z"
+        },
+        "author": "John Oliver",
+        "content": "Great lesson, thanks!",
+        "_id": {
+          "$oid": "666d9c06f81d6c1fe0090c6c"
+        }
+      },
+      {
+        "date": {
+          "$date": "2024-05-12T00:00:00.000Z"
+        },
+        "author": "Mario Jackson",
+        "content": "Everything is clear, thank you!",
+        "_id": {
+          "$oid": "666d9c06f81d6c1fe0090c6d"
+        }
+      }
+    ],
+    "rating": 5,
+    "media": [],
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "666d9c06f81d6c1fe0090c6f"
+    },
+    "id": 9,
+    "title": "Введение в MongoDB",
+    "description": "Хранение данных в MongoDB",
+    "comments": [],
+    "rating": 5,
+    "media": [],
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "666d9c06f81d6c1fe0090c72"
+    },
+    "id": 10,
+    "title": "Введение в Nest.js",
+    "description": "Создание приложения на Nest.js",
+    "comments": [],
+    "rating": 5,
+    "media": [],
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "666d9c06f81d6c1fe0090c74"
+    },
+    "id": 11,
+    "title": "Введение в GraphQL",
+    "description": "Использование инструментов для конфигурации GraphQL в проекте",
+    "comments": [],
+    "rating": 5,
+    "media": [],
+    "__v": 0
+  }
+]
