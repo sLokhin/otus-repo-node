@@ -14,6 +14,7 @@ import rolesRouter from './routes/roles.js';
 import usersRouter from './routes/users.js';
 import lessonsRouter from './routes/lessons.js';
 import coursesRouter from './routes/courses.js';
+import commentsRouter from './routes/comments.js';
 
 const __dirname = path.resolve();
 const PORT = process.env.PORT ?? 3000;
@@ -57,6 +58,7 @@ app.use('/api/roles', rolesRouter.apiRouter);
 app.use('/api/users', usersRouter.apiRouter);
 app.use('/api/lessons', lessonsRouter.apiRouter);
 app.use('/api/courses', coursesRouter.apiRouter);
+app.use('/api/comments', commentsRouter.apiRouter);
 
 app.use((req, res, next) => {
   next(createHttpError(404));
