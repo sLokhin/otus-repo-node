@@ -1,63 +1,149 @@
 import express from 'express';
-import { User, UserRepository } from '../classes/index.js';
+import { models } from '../database/DB.js';
+const { User } = models;
 
 const viewRouter = express.Router();
 const apiRouter = express.Router();
 
-const userRepository = new UserRepository();
-
 viewRouter.get('/', (req, res) => {
-  res.send('Course view router: respond with a resource');
+  res.send('Users view router: respond with a resource');
 });
 
 apiRouter.get('/', (req, res) => {
-  res.send('Course API router: respond with a resource');
+  res.send('Users API router: respond with a resource');
 });
 
-apiRouter.get('/all', (req, res) => {
-  res.json(userRepository.getAll());
-});
+apiRouter.get('/get', async (req, res) => {
+  try {
+    const { page = 1, limit = 2 } = req.query;
 
-apiRouter.get('/:id', (req, res) => {
-  const user = userRepository.getById(parseInt(req.params.id));
-  if (user) {
-    res.json(user);
-  } else {
-    res.status(404).send(`${req.params.id} User not found`);
+    const users = await User.find()
+      .limit(limit * 1)
+      .skip((page - 1) * limit)
+      .sort({ id: 1 });
+
+    if (!users) {
+      return res.status(404).send('Users not found');
+    }
+
+    return res.status(200).send(users);
+  } catch (err) {
+    res.status(500).send(err);
   }
 });
 
-apiRouter.post('/', (req, res) => {
-  const newUser = new User(
-    null,
-    req.body.password,
-    req.body.name,
-    req.body.email
-  );
-  const createdUser = userRepository.create(newUser);
-  res.status(201).json(createdUser);
-});
+apiRouter.get('/all', async (req, res) => {
+  try {
+    const users = await User.find();
 
-apiRouter.put('/:id', (req, res) => {
-  const updatedUser = {
-    name: req.body.name,
-    password: req.body.password,
-    email: req.body.email,
-  };
-  const user = userRepository.update(parseInt(req.params.id), updatedUser);
-  if (user) {
-    res.json(user);
-  } else {
-    res.status(404).send('User not found');
+    if (!users) {
+      return res.status(404).send('Users not found');
+    }
+
+    return res.status(200).send(users);
+  } catch (err) {
+    res.status(500).send(err);
   }
 });
 
-apiRouter.delete('/:id', (req, res) => {
-  const user = userRepository.delete(parseInt(req.params.id));
-  if (user) {
-    res.status(204).send();
-  } else {
-    res.status(404).send('User not found');
+apiRouter.get('/:id', async (req, res) => {
+  try {
+    const id = parseInt(req.params.id);
+    const item = await User.findOne({ id });
+
+    if (!item) {
+      return res.status(404).send(`${id} user not found`);
+    }
+
+    res.status(200).send(item);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
+
+apiRouter.post('/', async (req, res) => {
+  try {
+    const item = new User(req.body);
+
+    if (!item) {
+      return res.status(400).send('User not created');
+    }
+
+    await item.save();
+
+    return res.status(201).send(item);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
+
+apiRouter.patch('/:id', async (req, res) => {
+  try {
+    const id = parseInt(req.params.id);
+    const item = await User.findOneAndUpdate({ id }, req.body, { new: true });
+
+    if (!item) {
+      return res.status(404).send(`${id} user not found`);
+    }
+
+    res.status(200).send(item);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
+
+apiRouter.patch('/:id/courses', async (req, res) => {
+  try {
+    const id = parseInt(req.params.id);
+    const item = await User.findOne({ id });
+    const course = req.body.course;
+
+    if (!item) {
+      return res.status(404).send(`${id} user not found`);
+    }
+
+    if (Array.isArray(course)) {
+      return res
+        .status(400)
+        .send("Wrong params: 'course' should not be an array");
+    }
+
+    // delete course
+    if (item.courses.indexOf(course) !== -1) {
+      const data = await User.findOneAndUpdate(
+        { id },
+        { $pull: { courses: course } },
+        { new: true }
+      );
+
+      return res.status(200).send(data);
+    }
+
+    // add course
+    const data = await User.findOneAndUpdate(
+      { id },
+      { $push: { courses: course } },
+      { new: true }
+    );
+
+    res.status(200).send(data);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
+
+apiRouter.delete('/:id', async (req, res) => {
+  try {
+    const id = parseInt(req.params.id);
+    const result = await User.deleteOne({ id });
+
+    if (!result || !result.deletedCount) {
+      return res.status(404).send(`${id} user not found`);
+    }
+
+    res.status(200).send(result);
+  } catch (err) {
+    res.status(500).send(err);
   }
 });
 

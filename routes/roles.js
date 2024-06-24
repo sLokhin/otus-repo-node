@@ -24,10 +24,11 @@ apiRouter.get('/all', async (req, res) => {
 
 apiRouter.get('/:id', async (req, res) => {
   try {
-    const item = await Role.findOne({ id: parseInt(req.params.id) });
+    const id = parseInt(req.params.id);
+    const item = await Role.findOne({ id });
 
     if (!item) {
-      return res.status(404).send(`${req.params.id} role not found`);
+      return res.status(404).send(`${id} role not found`);
     }
 
     res.status(200).send(item);
@@ -52,28 +53,16 @@ apiRouter.post('/', async (req, res) => {
   }
 });
 
-apiRouter.put('/:id', async (req, res) => {
+apiRouter.patch('/:id', async (req, res) => {
   try {
-    const item = await Role.findOneAndUpdate(
-      { id: parseInt(req.params.id) },
-      req.body
-    );
+    const id = parseInt(req.params.id);
+    const item = await Role.findOneAndUpdate({ id }, req.body, { new: true });
 
     if (!item) {
-      return res.status(404).send(`${req.params.id} role not found`);
-    }
-
-    const newId = parseInt(req.body.id);
-    const prevId = parseInt(req.params.id);
-
-    const id = newId === 0 ? newId : prevId;
-    const updatedItem = await Role.findOne({ id });
-
-    if (!updatedItem) {
       return res.status(404).send(`${id} role not found`);
     }
 
-    res.status(200).send(updatedItem);
+    res.status(200).send(item);
   } catch (err) {
     res.status(500).send(err);
   }
@@ -81,10 +70,11 @@ apiRouter.put('/:id', async (req, res) => {
 
 apiRouter.delete('/:id', async (req, res) => {
   try {
-    const item = await Role.deleteOne({ id: parseInt(req.params.id) });
+    const id = parseInt(req.params.id);
+    const result = await Role.deleteOne({ id });
 
-    if (!item) {
-      return res.status(404).send(`${req.params.id} role not found`);
+    if (!result || !result.deletedCount) {
+      return res.status(404).send(`${id} role not found`);
     }
 
     res.status(200).send(item);

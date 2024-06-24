@@ -49,10 +49,11 @@ app.use('/', indexRouter);
 app.use('/login', loginRouter);
 app.use('/logout', logoutRouter);
 app.use('/signup', signupRouter);
-app.use('/api/roles', rolesRouter.apiRouter);
 app.use('/users', usersRouter.viewRouter);
-app.use('/api/users', usersRouter.apiRouter);
 app.use('/courses', coursesRouter.viewRouter);
+
+app.use('/api/roles', rolesRouter.apiRouter);
+app.use('/api/users', usersRouter.apiRouter);
 app.use('/api/courses', coursesRouter.apiRouter);
 
 app.use((req, res, next) => {
