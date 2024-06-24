@@ -12,6 +12,7 @@ import signupRouter from './routes/signup.js';
 import indexRouter from './routes/index.js';
 import rolesRouter from './routes/roles.js';
 import usersRouter from './routes/users.js';
+import lessonsRouter from './routes/lessons.js';
 import coursesRouter from './routes/courses.js';
 
 const __dirname = path.resolve();
@@ -54,6 +55,7 @@ app.use('/courses', coursesRouter.viewRouter);
 
 app.use('/api/roles', rolesRouter.apiRouter);
 app.use('/api/users', usersRouter.apiRouter);
+app.use('/api/lessons', lessonsRouter.apiRouter);
 app.use('/api/courses', coursesRouter.apiRouter);
 
 app.use((req, res, next) => {

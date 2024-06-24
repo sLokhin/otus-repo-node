@@ -9,13 +9,9 @@ viewRouter.get('/', (req, res) => {
   res.send('Users view router: respond with a resource');
 });
 
-apiRouter.get('/', (req, res) => {
-  res.send('Users API router: respond with a resource');
-});
-
-apiRouter.get('/get', async (req, res) => {
+apiRouter.get('/', async (req, res) => {
   try {
-    const { page = 1, limit = 2 } = req.query;
+    const { page = 1, limit = 10 } = req.query;
 
     const users = await User.find()
       .limit(limit * 1)
