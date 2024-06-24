@@ -1,66 +1,220 @@
 import express from 'express';
-import { Course, CourseRepository } from '../classes/index.js';
+import { models } from '../database/DB.js';
+const { Course } = models;
 
 const viewRouter = express.Router();
 const apiRouter = express.Router();
 
-const courseRepository = new CourseRepository();
+function calculateRating(vals) {
+  const grades = vals.filter((val) => val > 0);
+
+  if (!grades.length) {
+    return 0;
+  }
+
+  return Number(
+    (grades.reduce((acc, val) => acc + val, 0) / grades.length).toFixed(2)
+  );
+}
 
 viewRouter.get('/', (req, res) => {
   res.send('Course view router: respond with a resource');
 });
 
-apiRouter.get('/', (req, res) => {
-  res.send('Course API router: respond with a resource');
-});
+apiRouter.get('/', async (req, res) => {
+  try {
+    const { page = 1, limit = 10 } = req.query;
 
-apiRouter.get('/all', (req, res) => {
-  res.json(courseRepository.getAll());
-});
+    const courses = await Course.find()
+      .limit(limit * 1)
+      .skip((page - 1) * limit)
+      .sort({ id: 1 });
 
-apiRouter.get('/:id', (req, res) => {
-  const course = courseRepository.getById(parseInt(req.params.id));
-  if (course) {
-    res.json(course);
-  } else {
-    res.status(404).send(`${req.params.id} course not found`);
+    if (!courses) {
+      return res.status(404).send('Courses not found');
+    }
+
+    return res.status(200).send(courses);
+  } catch (err) {
+    res.status(500).send(err);
   }
 });
 
-apiRouter.post('/', (req, res) => {
-  const newCourse = new Course(
-    null,
-    req.body.name,
-    req.body.description,
-    req.body.tags
-  );
-  const createdCourse = courseRepository.create(newCourse);
-  res.status(201).json(createdCourse);
-});
+apiRouter.get('/all', async (req, res) => {
+  try {
+    const courses = await Course.find();
 
-apiRouter.put('/:id', (req, res) => {
-  const updatedCourse = {
-    name: req.body.name,
-    description: req.body.description,
-    tags: req.body.tags,
-  };
-  const course = courseRepository.update(
-    parseInt(req.params.id),
-    updatedCourse
-  );
-  if (course) {
-    res.json(course);
-  } else {
-    res.status(404).send('Course not found');
+    if (!courses) {
+      return res.status(404).send('Courses not found');
+    }
+
+    return res.status(200).send(courses);
+  } catch (err) {
+    res.status(500).send(err);
   }
 });
 
-apiRouter.delete('/:id', (req, res) => {
-  const course = courseRepository.delete(parseInt(req.params.id));
-  if (course) {
-    res.status(204).send();
-  } else {
-    res.status(404).send('Course not found');
+apiRouter.get('/:id', async (req, res) => {
+  try {
+    const id = parseInt(req.params.id);
+    const item = await Course.findOne({ id });
+
+    if (!item) {
+      return res.status(404).send(`${id} course not found`);
+    }
+
+    res.status(200).send(item);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
+
+apiRouter.get('/:id/comments', async (req, res) => {
+  try {
+    const id = parseInt(req.params.id);
+    const item = await Course.findOne({ id });
+
+    if (!item) {
+      return res.status(404).send(`${id} course not found`);
+    }
+
+    res.status(200).send(item.comments);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
+
+apiRouter.get('/:id/rating', async (req, res) => {
+  try {
+    const id = parseInt(req.params.id);
+    const item = await Course.findOne({ id });
+
+    if (!item) {
+      return res.status(404).send(`${id} course not found`);
+    }
+
+    const comments = item.comments;
+    const grades = comments.map((comment) => comment.rating);
+    const rating = calculateRating(grades);
+
+    res.status(200).send({ rating });
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
+
+apiRouter.post('/', async (req, res) => {
+  try {
+    const comments = req.body.comments;
+    const grades = comments.map((comment) => comment.rating);
+    const item = new Course({ ...req.body, rating: calculateRating(grades) });
+
+    if (!item) {
+      return res.status(400).send('Coursen not created');
+    }
+
+    await item.save();
+
+    return res.status(201).send(item);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
+
+apiRouter.patch('/:id', async (req, res) => {
+  try {
+    const id = parseInt(req.params.id);
+    const item = await Course.findOne({ id });
+
+    if (!item) {
+      return res.status(404).send(`${id} course not found`);
+    }
+
+    const comments = [...item.comments];
+    const newComments = [...(req.body.comments || [])];
+
+    newComments.forEach((comment) => {
+      if (!comments.find((com) => com._id === comment._id)) {
+        comments.push(comment);
+      }
+    });
+
+    const grades = comments.map((comment) => comment.rating);
+    const rating = calculateRating(grades);
+
+    const updatedItem = await Course.findOneAndUpdate(
+      { id },
+      { ...req.body, comments, rating },
+      { new: true }
+    );
+
+    if (!updatedItem) {
+      return res.status(404).send(`${id} updated course not found`);
+    }
+
+    res.status(200).send(updatedItem);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
+
+apiRouter.patch('/:id/comment', async (req, res) => {
+  try {
+    const id = parseInt(req.params.id);
+    const item = await Course.findOne({ id });
+
+    if (!item) {
+      return res.status(404).send(`${id} course not found`);
+    }
+
+    const comments = [...item.comments];
+    const newComment = req.body;
+
+    const newCommentIdx = comments.findIndex((com) => {
+      return (
+        com.author === newComment.author && com.content === newComment.content
+      );
+    });
+
+    if (newCommentIdx !== -1) {
+      // delete comment
+      comments.splice(newCommentIdx, 1);
+    } else {
+      // add comment
+      comments.push(newComment);
+    }
+
+    const grades = comments.map((comment) => comment.rating);
+    const rating = calculateRating(grades);
+
+    const updatedItem = await Course.findOneAndUpdate(
+      { id },
+      { ...req.body, comments, rating },
+      { new: true }
+    );
+
+    if (!updatedItem) {
+      return res.status(404).send(`${id} updated course not found`);
+    }
+
+    res.status(200).send(updatedItem);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
+
+apiRouter.delete('/:id', async (req, res) => {
+  try {
+    const id = parseInt(req.params.id);
+    const result = await Course.deleteOne({ id });
+
+    if (!result || !result.deletedCount) {
+      return res.status(404).send(`${id} course not found`);
+    }
+
+    res.status(200).send(result);
+  } catch (err) {
+    res.status(500).send(err);
   }
 });
 
