@@ -1,12 +1,5 @@
-import mongoose from 'mongoose';
-import * as schemas from './schemas/index.js';
-
-mongoose.connect('mongodb://localhost:27017/db-best-courses');
-
-const Role = mongoose.model('roles', schemas.role);
-const User = mongoose.model('users', schemas.user);
-const Lesson = mongoose.model('lessons', schemas.lesson);
-const Course = mongoose.model('courses', schemas.course);
+import { models } from './DB.js';
+const { Role, User, Lesson, Course } = models;
 
 const createRoles = async () => {
   const data = [
@@ -113,11 +106,13 @@ const createLessons = async () => {
           date: new Date('2024-05-16'),
           author: 'John Oliver',
           content: 'Good introductory tutorial',
+          rating: 5,
         },
         {
           date: new Date('2024-05-19'),
           author: 'James King',
           content: "Now it's clearer to me",
+          rating: 5,
         },
       ],
       rating: 5,
@@ -191,11 +186,13 @@ const createLessons = async () => {
           date: new Date('2024-05-10'),
           author: 'John Oliver',
           content: 'Great lesson, thanks!',
+          rating: 5,
         },
         {
           date: new Date('2024-05-12'),
           author: 'Mario Jackson',
           content: 'Everything is clear, thank you!',
+          rating: 5,
         },
       ],
       rating: 5,
@@ -250,9 +247,10 @@ const createCourses = async () => {
           date: new Date('2024-04-01'),
           author: 'Adam Davis',
           content: 'I hope my first course will be useful',
+          rating: 5,
         },
       ],
-      rating: 4.7,
+      rating: 5,
       lessons: [
         'Введение в Node и NPM',
         'Web Servers',
@@ -275,9 +273,10 @@ const createCourses = async () => {
           date: new Date('2024-04-24'),
           author: 'Robert Hill',
           content: 'Excellent course for middle developers',
+          rating: 5,
         },
       ],
-      rating: 4.8,
+      rating: 5,
       lessons: [
         'Gitflow',
         'Установка и настройка React',

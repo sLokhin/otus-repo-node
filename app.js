@@ -5,13 +5,18 @@ import express from 'express';
 import path from 'node:path';
 import createHttpError from 'http-errors';
 import morgan from 'morgan';
+import swaggerUi from 'swagger-ui-express';
+import * as swaggerDocument from './swagger/swagger.json' assert { type: 'json' };
 
 import loginRouter from './routes/login.js';
 import logoutRouter from './routes/logout.js';
 import signupRouter from './routes/signup.js';
 import indexRouter from './routes/index.js';
+import rolesRouter from './routes/roles.js';
 import usersRouter from './routes/users.js';
+import lessonsRouter from './routes/lessons.js';
 import coursesRouter from './routes/courses.js';
+import commentsRouter from './routes/comments.js';
 
 const __dirname = path.resolve();
 const PORT = process.env.PORT ?? 3000;
@@ -41,16 +46,22 @@ const accessLogStream = fs.createWriteStream(
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+app.use(express.json());
 app.use(morgan('common', { stream: accessLogStream }));
+app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument.default));
 
 app.use('/', indexRouter);
 app.use('/login', loginRouter);
 app.use('/logout', logoutRouter);
 app.use('/signup', signupRouter);
 app.use('/users', usersRouter.viewRouter);
-app.use('/api/users', usersRouter.apiRouter);
 app.use('/courses', coursesRouter.viewRouter);
+
+app.use('/api/roles', rolesRouter.apiRouter);
+app.use('/api/users', usersRouter.apiRouter);
+app.use('/api/lessons', lessonsRouter.apiRouter);
 app.use('/api/courses', coursesRouter.apiRouter);
+app.use('/api/comments', commentsRouter.apiRouter);
 
 app.use((req, res, next) => {
   next(createHttpError(404));
@@ -69,3 +80,5 @@ app.use((err, req, res, next) => {
 https.createServer(credentials, app).listen(PORT, () => {
   console.log(`Server has been started on port ${PORT}`);
 });
+
+export default app;

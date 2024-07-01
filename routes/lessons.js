@@ -1,8 +1,7 @@
 import express from 'express';
 import { models } from '../database/DB.js';
-const { Course } = models;
+const { Lesson } = models;
 
-const viewRouter = express.Router();
 const apiRouter = express.Router();
 
 function calculateRating(vals) {
@@ -17,24 +16,20 @@ function calculateRating(vals) {
   );
 }
 
-viewRouter.get('/', (req, res) => {
-  res.send('Course view router: respond with a resource');
-});
-
 apiRouter.get('/', async (req, res) => {
   try {
     const { page = 1, limit = 10 } = req.query;
 
-    const courses = await Course.find()
+    const lessons = await Lesson.find()
       .limit(limit * 1)
       .skip((page - 1) * limit)
       .sort({ id: 1 });
 
-    if (!courses) {
-      return res.status(404).send('Courses not found');
+    if (!lessons) {
+      return res.status(404).send('Lessons not found');
     }
 
-    return res.status(200).send(courses);
+    return res.status(200).send(lessons);
   } catch (err) {
     res.status(500).send(err);
   }
@@ -42,13 +37,13 @@ apiRouter.get('/', async (req, res) => {
 
 apiRouter.get('/all', async (req, res) => {
   try {
-    const courses = await Course.find();
+    const lessons = await Lesson.find();
 
-    if (!courses) {
-      return res.status(404).send('Courses not found');
+    if (!lessons) {
+      return res.status(404).send('Lessons not found');
     }
 
-    return res.status(200).send(courses);
+    return res.status(200).send(lessons);
   } catch (err) {
     res.status(500).send(err);
   }
@@ -57,10 +52,10 @@ apiRouter.get('/all', async (req, res) => {
 apiRouter.get('/:id', async (req, res) => {
   try {
     const id = parseInt(req.params.id);
-    const item = await Course.findOne({ id });
+    const item = await Lesson.findOne({ id });
 
     if (!item) {
-      return res.status(404).send(`${id} course not found`);
+      return res.status(404).send(`${id} lesson not found`);
     }
 
     res.status(200).send(item);
@@ -72,10 +67,10 @@ apiRouter.get('/:id', async (req, res) => {
 apiRouter.get('/:id/comments', async (req, res) => {
   try {
     const id = parseInt(req.params.id);
-    const item = await Course.findOne({ id });
+    const item = await Lesson.findOne({ id });
 
     if (!item) {
-      return res.status(404).send(`${id} course not found`);
+      return res.status(404).send(`${id} lesson not found`);
     }
 
     res.status(200).send(item.comments);
@@ -87,10 +82,10 @@ apiRouter.get('/:id/comments', async (req, res) => {
 apiRouter.get('/:id/rating', async (req, res) => {
   try {
     const id = parseInt(req.params.id);
-    const item = await Course.findOne({ id });
+    const item = await Lesson.findOne({ id });
 
     if (!item) {
-      return res.status(404).send(`${id} course not found`);
+      return res.status(404).send(`${id} lesson not found`);
     }
 
     const comments = item.comments;
@@ -107,10 +102,10 @@ apiRouter.post('/', async (req, res) => {
   try {
     const comments = req.body.comments;
     const grades = comments.map((comment) => comment.rating);
-    const item = new Course({ ...req.body, rating: calculateRating(grades) });
+    const item = new Lesson({ ...req.body, rating: calculateRating(grades) });
 
     if (!item) {
-      return res.status(400).send('Coursen not created');
+      return res.status(400).send('Lesson not created');
     }
 
     await item.save();
@@ -124,10 +119,10 @@ apiRouter.post('/', async (req, res) => {
 apiRouter.patch('/:id', async (req, res) => {
   try {
     const id = parseInt(req.params.id);
-    const item = await Course.findOne({ id });
+    const item = await Lesson.findOne({ id });
 
     if (!item) {
-      return res.status(404).send(`${id} course not found`);
+      return res.status(404).send(`${id} lesson not found`);
     }
 
     const comments = [...item.comments];
@@ -142,14 +137,14 @@ apiRouter.patch('/:id', async (req, res) => {
     const grades = comments.map((comment) => comment.rating);
     const rating = calculateRating(grades);
 
-    const updatedItem = await Course.findOneAndUpdate(
+    const updatedItem = await Lesson.findOneAndUpdate(
       { id },
       { ...req.body, comments, rating },
       { new: true }
     );
 
     if (!updatedItem) {
-      return res.status(404).send(`${id} updated course not found`);
+      return res.status(404).send(`${id} updated lesson not found`);
     }
 
     res.status(200).send(updatedItem);
@@ -161,10 +156,10 @@ apiRouter.patch('/:id', async (req, res) => {
 apiRouter.patch('/:id/comment', async (req, res) => {
   try {
     const id = parseInt(req.params.id);
-    const item = await Course.findOne({ id });
+    const item = await Lesson.findOne({ id });
 
     if (!item) {
-      return res.status(404).send(`${id} course not found`);
+      return res.status(404).send(`${id} lesson not found`);
     }
 
     const comments = [...item.comments];
@@ -187,14 +182,14 @@ apiRouter.patch('/:id/comment', async (req, res) => {
     const grades = comments.map((comment) => comment.rating);
     const rating = calculateRating(grades);
 
-    const updatedItem = await Course.findOneAndUpdate(
+    const updatedItem = await Lesson.findOneAndUpdate(
       { id },
       { ...req.body, comments, rating },
       { new: true }
     );
 
     if (!updatedItem) {
-      return res.status(404).send(`${id} updated course not found`);
+      return res.status(404).send(`${id} updated lesson not found`);
     }
 
     res.status(200).send(updatedItem);
@@ -206,10 +201,10 @@ apiRouter.patch('/:id/comment', async (req, res) => {
 apiRouter.delete('/:id', async (req, res) => {
   try {
     const id = parseInt(req.params.id);
-    const result = await Course.deleteOne({ id });
+    const result = await Lesson.deleteOne({ id });
 
     if (!result || !result.deletedCount) {
-      return res.status(404).send(`${id} course not found`);
+      return res.status(404).send(`${id} lesson not found`);
     }
 
     res.status(200).send(result);
@@ -218,5 +213,5 @@ apiRouter.delete('/:id', async (req, res) => {
   }
 });
 
-const coursesRouter = { viewRouter, apiRouter };
-export default coursesRouter;
+const lessonsRouter = { apiRouter };
+export default lessonsRouter;

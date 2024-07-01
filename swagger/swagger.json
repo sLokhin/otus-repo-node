@@ -1,0 +1,1527 @@
+
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "REST API Project courses",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://localhost:3000/api"
+    }
+  ],
+  "tags": [
+    {
+      "name": "roles"
+    },
+    {
+      "name": "users"
+    },
+    {
+      "name": "lessons"
+    },
+    {
+      "name": "courses"
+    },
+    {
+      "name": "comments"
+    }
+  ],
+  "paths": {
+    "/roles": {
+      "post": {
+        "tags": ["roles"],
+        "summary": "Add role",
+        "description": "Add role",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Role"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Role"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Role not created"
+          },
+          "500": {
+            "description": "Request failed"
+          }
+        }
+      }
+    },
+    "/roles/all": {
+      "get": {
+        "tags": ["roles"],
+        "summary": "Get list of roles",
+        "description": "Get list of roles",
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Roles"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Roles not found"
+          },
+          "500": {
+            "description": "Request failed"
+          }
+        }
+      }
+    },
+    "/roles/{id}": {
+      "get": {
+        "tags": ["roles"],
+        "summary": "Get role by id",
+        "description": "Get role by id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Role id",
+            "schema": {
+              "type": "string"
+            },
+            "example": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Role"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Role not found"
+          },
+          "500": {
+            "description": "Request failed"
+          }
+        }
+      },
+      "patch": {
+        "tags": ["roles"],
+        "summary": "Update role by id",
+        "description": "Update role by id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Role id",
+            "schema": {
+              "type": "string"
+            },
+            "example": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Role"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Role not found"
+          },
+          "500": {
+            "description": "Request failed"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["roles"],
+        "summary": "Delete role by id",
+        "description": "Delete role by id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Role id",
+            "schema": {
+              "type": "string"
+            },
+            "example": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {}
+            }
+          },
+          "404": {
+            "description": "Role not found"
+          },
+          "500": {
+            "description": "Request failed"
+          }
+        }
+      }
+    },
+    "/users": {
+      "get": {
+        "tags": ["users"],
+        "summary": "Get users list",
+        "description": "Get users list",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page",
+            "schema": {
+              "type": "integer"
+            },
+            "example": 1
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Limit",
+            "schema": {
+              "type": "integer"
+            },
+            "example": 10
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/User"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Users not found"
+          },
+          "500": {
+            "description": "Request failed"
+          }
+        }
+      },
+      "post": {
+        "tags": ["users"],
+        "summary": "Add user",
+        "description": "Add user",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "User not created"
+          },
+          "500": {
+            "description": "Request failed"
+          }
+        }
+      }
+    },
+    "/users/all": {
+      "get": {
+        "tags": ["users"],
+        "summary": "Get all users",
+        "description": "Get all users",
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/User"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Users not found"
+          },
+          "500": {
+            "description": "Request failed"
+          }
+        }
+      }
+    },
+    "/users/{id}": {
+      "get": {
+        "tags": ["users"],
+        "summary": "Get user by id",
+        "description": "Get user by id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "User id",
+            "schema": {
+              "type": "string"
+            },
+            "example": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "User not found"
+          },
+          "500": {
+            "description": "Request failed"
+          }
+        }
+      },
+      "patch": {
+        "tags": ["users"],
+        "summary": "Update user by id",
+        "description": "Update user by id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "User id",
+            "schema": {
+              "type": "string"
+            },
+            "example": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "User not found"
+          },
+          "500": {
+            "description": "Request failed"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["users"],
+        "summary": "Delete user by id",
+        "description": "Delete user by id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "User id",
+            "schema": {
+              "type": "string"
+            },
+            "example": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {}
+            }
+          },
+          "404": {
+            "description": "Role not found"
+          },
+          "500": {
+            "description": "Request failed"
+          }
+        }
+      }
+    },
+    "/users/{id}/courses": {
+      "patch": {
+        "tags": ["users"],
+        "summary": "Update user courses",
+        "description": "Update user courses, add course or delete if exist",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "User id",
+            "schema": {
+              "type": "string"
+            },
+            "example": 1
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "string",
+                "example": "Node.js Developer"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Wrong params"
+          },
+          "404": {
+            "description": "User not found"
+          },
+          "500": {
+            "description": "Request failed"
+          }
+        }
+      }
+    },
+    "/lessons": {
+      "get": {
+        "tags": ["lessons"],
+        "summary": "Get lessons list",
+        "description": "Get lesssons list",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page",
+            "schema": {
+              "type": "integer"
+            },
+            "example": 1
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Limit",
+            "schema": {
+              "type": "integer"
+            },
+            "example": 10
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Lesson"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Lessons not found"
+          },
+          "500": {
+            "description": "Request failed"
+          }
+        }
+      },
+      "post": {
+        "tags": ["lessons"],
+        "summary": "Add lesson",
+        "description": "Add lesson",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Lesson"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Lesson"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Lesson not created"
+          },
+          "500": {
+            "description": "Request failed"
+          }
+        }
+      }
+    },
+    "/lessons/all": {
+      "get": {
+        "tags": ["lessons"],
+        "summary": "Get all lessons",
+        "description": "Get all lessons",
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Lesson"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Lessons not found"
+          },
+          "500": {
+            "description": "Request failed"
+          }
+        }
+      }
+    },
+    "/lessons/{id}": {
+      "get": {
+        "tags": ["lessons"],
+        "summary": "Get lesson by id",
+        "description": "Get lesson by id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Lesson id",
+            "schema": {
+              "type": "string"
+            },
+            "example": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Lesson"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Lesson not found"
+          },
+          "500": {
+            "description": "Request failed"
+          }
+        }
+      },
+      "patch": {
+        "tags": ["lessons"],
+        "summary": "Update lesson by id",
+        "description": "Update lesson by id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Lesson id",
+            "schema": {
+              "type": "string"
+            },
+            "example": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Lesson"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Lesson not found"
+          },
+          "500": {
+            "description": "Request failed"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["lessons"],
+        "summary": "Delete lesson by id",
+        "description": "Delete lesson by id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Lesson id",
+            "schema": {
+              "type": "string"
+            },
+            "example": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {}
+            }
+          },
+          "404": {
+            "description": "Lesson not found"
+          },
+          "500": {
+            "description": "Request failed"
+          }
+        }
+      }
+    },
+    "/lessons/{id}/comment": {
+      "patch": {
+        "tags": ["lessons"],
+        "summary": "Add or remove comment",
+        "description": "Add comment or remove if exist",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Lesson id",
+            "schema": {
+              "type": "string"
+            },
+            "example": 1
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Comment"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Lesson"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Lesson not found"
+          },
+          "500": {
+            "description": "Request failed"
+          }
+        }
+      }
+    },
+    "/lessons/{id}/comments": {
+      "get": {
+        "tags": ["lessons"],
+        "summary": "Get all lesson comments",
+        "description": "Get all lesson comments",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Lesson id",
+            "schema": {
+              "type": "string"
+            },
+            "example": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Comment"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Lesson not found"
+          },
+          "500": {
+            "description": "Request failed"
+          }
+        }
+      }
+    },
+    "/lessons/{id}/rating": {
+      "get": {
+        "tags": ["lessons"],
+        "summary": "Get lesson rating",
+        "description": "Get lesson rating",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Lesson id",
+            "schema": {
+              "type": "string"
+            },
+            "example": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "rating": {
+                      "type": "number",
+                      "example": 4.7
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Lesson not found"
+          },
+          "500": {
+            "description": "Request failed"
+          }
+        }
+      }
+    },
+    "/courses": {
+      "get": {
+        "tags": ["courses"],
+        "summary": "Get courses list",
+        "description": "Get courses list",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page",
+            "schema": {
+              "type": "integer"
+            },
+            "example": 1
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Limit",
+            "schema": {
+              "type": "integer"
+            },
+            "example": 10
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Course"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Courses not found"
+          },
+          "500": {
+            "description": "Request failed"
+          }
+        }
+      },
+      "post": {
+        "tags": ["courses"],
+        "summary": "Add course",
+        "description": "Add course",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Course"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Course"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Course not created"
+          },
+          "500": {
+            "description": "Request failed"
+          }
+        }
+      }
+    },
+    "/courses/all": {
+      "get": {
+        "tags": ["courses"],
+        "summary": "Get all courses",
+        "description": "Get all courses",
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Course"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Courses not found"
+          },
+          "500": {
+            "description": "Request failed"
+          }
+        }
+      }
+    },
+    "/courses/{id}": {
+      "get": {
+        "tags": ["courses"],
+        "summary": "Get course by id",
+        "description": "Get course by id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Course id",
+            "schema": {
+              "type": "string"
+            },
+            "example": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Course"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Course not found"
+          },
+          "500": {
+            "description": "Request failed"
+          }
+        }
+      },
+      "patch": {
+        "tags": ["courses"],
+        "summary": "Update course by id",
+        "description": "Update course by id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Course id",
+            "schema": {
+              "type": "string"
+            },
+            "example": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Course"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Course not found"
+          },
+          "500": {
+            "description": "Request failed"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["courses"],
+        "summary": "Delete course by id",
+        "description": "Delete course by id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Course id",
+            "schema": {
+              "type": "string"
+            },
+            "example": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {}
+            }
+          },
+          "404": {
+            "description": "Course not found"
+          },
+          "500": {
+            "description": "Request failed"
+          }
+        }
+      }
+    },
+    "/courses/{id}/comment": {
+      "patch": {
+        "tags": ["courses"],
+        "summary": "Add or remove comment",
+        "description": "Add comment or remove if exist",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Course id",
+            "schema": {
+              "type": "string"
+            },
+            "example": 1
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Comment"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Course"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Course not found"
+          },
+          "500": {
+            "description": "Request failed"
+          }
+        }
+      }
+    },
+    "/courses/{id}/comments": {
+      "get": {
+        "tags": ["courses"],
+        "summary": "Get all course comments",
+        "description": "Get all course comments",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Course id",
+            "schema": {
+              "type": "string"
+            },
+            "example": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Comment"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Course not found"
+          },
+          "500": {
+            "description": "Request failed"
+          }
+        }
+      }
+    },
+    "/courses/{id}/rating": {
+      "get": {
+        "tags": ["courses"],
+        "summary": "Get course rating",
+        "description": "Get course rating",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Course id",
+            "schema": {
+              "type": "string"
+            },
+            "example": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "rating": {
+                      "type": "number",
+                      "example": 4.7
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Course not found"
+          },
+          "500": {
+            "description": "Request failed"
+          }
+        }
+      }
+    },
+    "/comments/all": {
+      "get": {
+        "tags": ["comments"],
+        "summary": "Get comments from courses and lessons",
+        "description": "Get comments from courses and lessons",
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AllComments"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Request failed"
+          }
+        }
+      }
+    },
+    "/comments/author": {
+      "get": {
+        "tags": ["comments"],
+        "summary": "Get comments from courses and lessons by author",
+        "description": "Get comments from courses and lessons by author",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "Author name",
+            "schema": {
+              "type": "string"
+            },
+            "example": "John Oliver"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AllComments"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Request failed"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Role": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "description"
+        ],
+        "properties": {
+          "id": {
+            "type": "integer",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "enum": [
+              "student",
+              "teacher",
+              "admin"
+            ],
+            "default": "student"
+          },
+          "description": {
+            "type": "string",
+            "example": "student account with rights to view courses"
+          }
+        }
+      },
+      "Roles": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/Role"
+        }
+      },
+      "User": {
+        "type": "object",
+        "required": [
+          "id",
+          "login",
+          "password",
+          "name",
+          "email",
+          "role",
+          "courses"
+        ],
+        "properties": {
+          "id": {
+            "type": "integer",
+            "example": 1
+          },
+          "login": {
+            "type": "string",
+            "example": "joliver"
+          },
+          "password": {
+            "type": "string",
+            "example": "password"
+          },
+          "name": {
+            "type": "string",
+            "example": "John Oliver"
+          },
+          "email": {
+            "type": "string",
+            "example": "joliver@mail.com"
+          },
+          "role": {
+            "type": "string",
+            "enum": [
+              "student",
+              "teacher",
+              "admin"
+            ],
+            "default": "student"
+          },
+          "courses": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": [
+              "Node.js Developer",
+              "React.js Developer",
+              "Fullstack Developer"
+            ]
+          }
+        }
+      },
+      "Lesson": {
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "description",
+          "comments",
+          "rating"
+        ],
+        "properties": {
+          "id": {
+            "type": "integer",
+            "example": 1
+          },
+          "title": {
+            "type": "string",
+            "example": "Gitflow"
+          },
+          "description": {
+            "type": "string",
+            "example": "Урок по ведению репозитория курса, правила создания веток для сдачи практических заданий"
+          },
+          "comments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Comment"
+            },
+            "example": [
+              {
+                "date": "2024-05-16T00:00:00.000+00:00",
+                "author": "John Oliver",
+                "content": "Good introductory tutorial",
+                "rating": 5
+              },
+              {
+                "date": "2024-05-19T00:00:00.000+00:00",
+                "author": "James King",
+                "content": "Now it's clearer to me",
+                "rating": 5
+              }
+            ]
+          },
+          "rating": {
+            "type": "number",
+            "example": 5
+          },
+          "media": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": [
+              "https://habr.com/ru/articles/767424/"
+            ]
+          }
+        }
+      },
+      "Course": {
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "description",
+          "difficulty",
+          "tags",
+          "authors",
+          "teachers",
+          "admins",
+          "comments",
+          "rating",
+          "lessons"
+        ],
+        "properties": {
+          "id": {
+            "type": "integer",
+            "example": 1
+          },
+          "title": {
+            "type": "string",
+            "example": "Node.js Developer"
+          },
+          "description": {
+            "type": "string",
+            "example": "Development of server applications on Node.js"
+          },
+          "difficulty": {
+            "type": "string",
+            "enum": [
+              "basic",
+              "average",
+              "pro"
+            ],
+            "default": "average"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": [
+                "node",
+                "express",
+                "mongoDB"
+              ]
+            }
+          },
+          "authors": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": [
+                "Adam Davis"
+              ]
+            }
+          },
+          "teachers": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": [
+                "Adam Davis"
+              ]
+            }
+          },
+          "admins": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": [
+                "Adam Davis",
+                "Harry Jones"
+              ]
+            }
+          },
+          "comments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Comment"
+            },
+            "example": [
+              {
+                "date": "2024-04-01T00:00:00.000+00:00",
+                "author": "Adam Davis",
+                "content": "I hope my first course will be useful",
+                "rating": 4.7
+              }
+            ]
+          },
+          "rating": {
+            "type": "number",
+            "example": 4.7
+          },
+          "lessons": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": [
+              "Введение в Node и NPM",
+              "Web Servers",
+              "Введение в MongoDB",
+              "Введение в Nest.js",
+              "Введение в GraphQL"
+            ]
+          }
+        }
+      },
+      "Comment": {
+        "type": "object",
+        "required": [
+          "date",
+          "author",
+          "content",
+          "rating"
+        ],
+        "properties": {
+          "date": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2024-05-16T00:00:00.000Z"
+          },
+          "author": {
+            "type": "string",
+            "example": "John Oliver"
+          },
+          "content": {
+            "type": "string",
+            "example": "Great lesson, thanks!"
+          },
+          "rating": {
+            "type": "number",
+            "example": 5
+          }
+        }
+      },
+      "AllComments": {
+        "type": "object",
+        "required": [
+          "lessons",
+          "courses"
+        ],
+        "properties": {
+          "lessons": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "type": "string",
+                  "example": "Web Servers"
+                },
+                "comments": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Comment"
+                  }
+                }
+              }
+            }
+          },
+          "courses": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "type": "string",
+                  "example": "Node.js Developer"
+                },
+                "comments": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Comment"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
