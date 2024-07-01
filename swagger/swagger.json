@@ -30,9 +30,7 @@
   "paths": {
     "/roles": {
       "post": {
-        "tags": [
-          "roles"
-        ],
+        "tags": ["roles"],
         "summary": "Add role",
         "description": "Add role",
         "requestBody": {
@@ -67,9 +65,7 @@
     },
     "/roles/all": {
       "get": {
-        "tags": [
-          "roles"
-        ],
+        "tags": ["roles"],
         "summary": "Get list of roles",
         "description": "Get list of roles",
         "responses": {
@@ -92,11 +88,9 @@
         }
       }
     },
-    "/roles{id}": {
+    "/roles/{id}": {
       "get": {
-        "tags": [
-          "roles"
-        ],
+        "tags": ["roles"],
         "summary": "Get role by id",
         "description": "Get role by id",
         "parameters": [
@@ -131,9 +125,7 @@
         }
       },
       "patch": {
-        "tags": [
-          "roles"
-        ],
+        "tags": ["roles"],
         "summary": "Update role by id",
         "description": "Update role by id",
         "parameters": [
@@ -168,9 +160,7 @@
         }
       },
       "delete": {
-        "tags": [
-          "roles"
-        ],
+        "tags": ["roles"],
         "summary": "Delete role by id",
         "description": "Delete role by id",
         "parameters": [
@@ -203,9 +193,7 @@
     },
     "/users": {
       "get": {
-        "tags": [
-          "users"
-        ],
+        "tags": ["users"],
         "summary": "Get users list",
         "description": "Get users list",
         "parameters": [
@@ -251,9 +239,7 @@
         }
       },
       "post": {
-        "tags": [
-          "users"
-        ],
+        "tags": ["users"],
         "summary": "Add user",
         "description": "Add user",
         "requestBody": {
@@ -288,9 +274,7 @@
     },
     "/users/all": {
       "get": {
-        "tags": [
-          "users"
-        ],
+        "tags": ["users"],
         "summary": "Get all users",
         "description": "Get all users",
         "responses": {
@@ -316,11 +300,9 @@
         }
       }
     },
-    "/users{id}": {
+    "/users/{id}": {
       "get": {
-        "tags": [
-          "users"
-        ],
+        "tags": ["users"],
         "summary": "Get user by id",
         "description": "Get user by id",
         "parameters": [
@@ -355,9 +337,7 @@
         }
       },
       "patch": {
-        "tags": [
-          "users"
-        ],
+        "tags": ["users"],
         "summary": "Update user by id",
         "description": "Update user by id",
         "parameters": [
@@ -392,9 +372,7 @@
         }
       },
       "delete": {
-        "tags": [
-          "users"
-        ],
+        "tags": ["users"],
         "summary": "Delete user by id",
         "description": "Delete user by id",
         "parameters": [
@@ -425,11 +403,9 @@
         }
       }
     },
-    "/users{id}/courses": {
+    "/users/{id}/courses": {
       "patch": {
-        "tags": [
-          "users"
-        ],
+        "tags": ["users"],
         "summary": "Update user courses",
         "description": "Update user courses, add course or delete if exist",
         "parameters": [
@@ -480,9 +456,7 @@
     },
     "/lessons": {
       "get": {
-        "tags": [
-          "lessons"
-        ],
+        "tags": ["lessons"],
         "summary": "Get lessons list",
         "description": "Get lesssons list",
         "parameters": [
@@ -528,9 +502,7 @@
         }
       },
       "post": {
-        "tags": [
-          "lessons"
-        ],
+        "tags": ["lessons"],
         "summary": "Add lesson",
         "description": "Add lesson",
         "requestBody": {
@@ -565,9 +537,7 @@
     },
     "/lessons/all": {
       "get": {
-        "tags": [
-          "lessons"
-        ],
+        "tags": ["lessons"],
         "summary": "Get all lessons",
         "description": "Get all lessons",
         "responses": {
@@ -593,11 +563,9 @@
         }
       }
     },
-    "/lessons{id}": {
+    "/lessons/{id}": {
       "get": {
-        "tags": [
-          "lessons"
-        ],
+        "tags": ["lessons"],
         "summary": "Get lesson by id",
         "description": "Get lesson by id",
         "parameters": [
@@ -632,9 +600,7 @@
         }
       },
       "patch": {
-        "tags": [
-          "lessons"
-        ],
+        "tags": ["lessons"],
         "summary": "Update lesson by id",
         "description": "Update lesson by id",
         "parameters": [
@@ -669,9 +635,7 @@
         }
       },
       "delete": {
-        "tags": [
-          "lessons"
-        ],
+        "tags": ["lessons"],
         "summary": "Delete lesson by id",
         "description": "Delete lesson by id",
         "parameters": [
@@ -702,11 +666,9 @@
         }
       }
     },
-    "/lessons{id}/comment": {
+    "/lessons/{id}/comment": {
       "patch": {
-        "tags": [
-          "lessons"
-        ],
+        "tags": ["lessons"],
         "summary": "Add or remove comment",
         "description": "Add comment or remove if exist",
         "parameters": [
@@ -751,11 +713,9 @@
         }
       }
     },
-    "/lessons{id}/comments": {
+    "/lessons/{id}/comments": {
       "get": {
-        "tags": [
-          "lessons"
-        ],
+        "tags": ["lessons"],
         "summary": "Get all lesson comments",
         "description": "Get all lesson comments",
         "parameters": [
@@ -793,11 +753,9 @@
         }
       }
     },
-    "/lessons{id}/rating": {
+    "/lessons/{id}/rating": {
       "get": {
-        "tags": [
-          "lessons"
-        ],
+        "tags": ["lessons"],
         "summary": "Get lesson rating",
         "description": "Get lesson rating",
         "parameters": [
@@ -840,9 +798,7 @@
     },
     "/courses": {
       "get": {
-        "tags": [
-          "courses"
-        ],
+        "tags": ["courses"],
         "summary": "Get courses list",
         "description": "Get courses list",
         "parameters": [
@@ -888,9 +844,7 @@
         }
       },
       "post": {
-        "tags": [
-          "courses"
-        ],
+        "tags": ["courses"],
         "summary": "Add course",
         "description": "Add course",
         "requestBody": {
@@ -925,9 +879,7 @@
     },
     "/courses/all": {
       "get": {
-        "tags": [
-          "courses"
-        ],
+        "tags": ["courses"],
         "summary": "Get all courses",
         "description": "Get all courses",
         "responses": {
@@ -953,11 +905,9 @@
         }
       }
     },
-    "/courses{id}": {
+    "/courses/{id}": {
       "get": {
-        "tags": [
-          "courses"
-        ],
+        "tags": ["courses"],
         "summary": "Get course by id",
         "description": "Get course by id",
         "parameters": [
@@ -992,9 +942,7 @@
         }
       },
       "patch": {
-        "tags": [
-          "courses"
-        ],
+        "tags": ["courses"],
         "summary": "Update course by id",
         "description": "Update course by id",
         "parameters": [
@@ -1029,9 +977,7 @@
         }
       },
       "delete": {
-        "tags": [
-          "courses"
-        ],
+        "tags": ["courses"],
         "summary": "Delete course by id",
         "description": "Delete course by id",
         "parameters": [
@@ -1062,11 +1008,9 @@
         }
       }
     },
-    "/courses{id}/comment": {
+    "/courses/{id}/comment": {
       "patch": {
-        "tags": [
-          "courses"
-        ],
+        "tags": ["courses"],
         "summary": "Add or remove comment",
         "description": "Add comment or remove if exist",
         "parameters": [
@@ -1111,11 +1055,9 @@
         }
       }
     },
-    "/courses{id}/comments": {
+    "/courses/{id}/comments": {
       "get": {
-        "tags": [
-          "courses"
-        ],
+        "tags": ["courses"],
         "summary": "Get all course comments",
         "description": "Get all course comments",
         "parameters": [
@@ -1153,11 +1095,9 @@
         }
       }
     },
-    "/courses{id}/rating": {
+    "/courses/{id}/rating": {
       "get": {
-        "tags": [
-          "courses"
-        ],
+        "tags": ["courses"],
         "summary": "Get course rating",
         "description": "Get course rating",
         "parameters": [
@@ -1200,9 +1140,7 @@
     },
     "/comments/all": {
       "get": {
-        "tags": [
-          "comments"
-        ],
+        "tags": ["comments"],
         "summary": "Get comments from courses and lessons",
         "description": "Get comments from courses and lessons",
         "responses": {
@@ -1224,9 +1162,7 @@
     },
     "/comments/author": {
       "get": {
-        "tags": [
-          "comments"
-        ],
+        "tags": ["comments"],
         "summary": "Get comments from courses and lessons by author",
         "description": "Get comments from courses and lessons by author",
         "parameters": [
