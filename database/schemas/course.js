@@ -19,6 +19,7 @@ const courseSchema = mongoose.Schema({
   difficulty: {
     type: String,
     required: true,
+    enum: ['basic', 'average', 'pro'],
   },
   tags: {
     type: [String],
