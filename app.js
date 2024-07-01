@@ -80,3 +80,5 @@ app.use((err, req, res, next) => {
 https.createServer(credentials, app).listen(PORT, () => {
   console.log(`Server has been started on port ${PORT}`);
 });
+
+export default app;

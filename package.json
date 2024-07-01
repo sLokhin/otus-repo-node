@@ -11,7 +11,7 @@
     "start": "nodemon --inspect app",
     "generate:tree": "node generate-random-tree",
     "generate:db": "node ./database/createDB.js",
-    "test": "jest",
+    "test": "PORT=3005 jest --forceExit --detectOpenHandles",
     "test:coverage": "jest --collect-coverage",
     "lesson:tree": "node lesson-1",
     "lesson:streams": "node lesson-4"
@@ -48,6 +48,7 @@
     "ejs": "^3.1.10",
     "express": "^4.19.2",
     "http-errors": "^2.0.0",
+    "mongodb-memory-server": "^9.4.0",
     "mongoose": "^8.4.1",
     "morgan": "^1.10.0",
     "supertest": "^7.0.0",
