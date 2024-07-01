@@ -27,6 +27,7 @@
   },
   "homepage": "https://github.com/sLokhin/otus-repo-node#readme",
   "devDependencies": {
+    "@babel/plugin-syntax-import-attributes": "^7.24.7",
     "@babel/preset-env": "^7.24.5",
     "@faker-js/faker": "^8.4.1",
     "@types/express": "^4.17.21",
