@@ -5,6 +5,8 @@ import express from 'express';
 import path from 'node:path';
 import createHttpError from 'http-errors';
 import morgan from 'morgan';
+import swaggerUi from 'swagger-ui-express';
+import * as swaggerDocument from './swagger/swagger.json' assert { type: 'json' };
 
 import loginRouter from './routes/login.js';
 import logoutRouter from './routes/logout.js';
@@ -46,6 +48,7 @@ app.set('view engine', 'ejs');
 
 app.use(express.json());
 app.use(morgan('common', { stream: accessLogStream }));
+app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument.default));
 
 app.use('/', indexRouter);
 app.use('/login', loginRouter);
